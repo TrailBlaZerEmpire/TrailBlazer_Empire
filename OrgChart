@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#101923] dark group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#223549] px-10 py-3">
+          <div class="flex items-center gap-4 text-white">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_319)">
+                  <path
+                    d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_319"><rect width="48" height="48" fill="white"></rect></clipPath>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Acme Co</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal" href="#">About</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Services</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Portfolio</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Careers</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#">Contact</a>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#3490f3] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Get Started</span>
+            </button>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-white tracking-light text-[32px] font-bold leading-tight">Organization Chart</p>
+                <p class="text-[#90accb] text-sm font-normal leading-normal">Explore the structure of our parent company and its subsidiaries.</p>
+              </div>
+            </div>
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Parent Company</h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl bg-[#182634] p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-white text-base font-bold leading-tight">Acme Co</p>
+                  <p class="text-[#90accb] text-sm font-normal leading-normal">The parent company overseeing operations in finance, technology, and strategy.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKHOXkdLN7KUZt5YFmXDkXV0jRoUbReb2KYLLmvNWkttme5tF8T4A-MBXHMo0BsSd8d1sLovIQWHdrDJnU_87W7rgioAb2GMMDD7nVyBjO0bKhB19_IZLWyfb8FrvIqNXM_Ib2fi8fzznuLdKOhvK2dRvA7fWyl1LRmXuzFv4-10GCcD-kw83fPWMEUc5OtOpe4kfgnZlpYqRtXd13dAxl9Bp5Hz_gWqCcD_sk6S1z3Ab1ZsZA7UayP6ADuUFjPxP3YUGXG0OxUjM");'
+                ></div>
+              </div>
+            </div>
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Subsidiaries</h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl bg-[#182634] p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-white text-base font-bold leading-tight">Finance Subsidiary</p>
+                  <p class="text-[#90accb] text-sm font-normal leading-normal">Specializing in financial services and investment management.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKO3lSC1r4vCC0lCckiU6Dw-oufFjPzIr0WKoqjk8GyrxCnK_7ljytBgc2WvOwmXoYUgjP6xgMZ4sVyYID6AWLrND1i8LNAGZBC2HmkCrGGJjic6E2u2_4Bc4qQp0MnGEQBsKV5eTr7IekG3JSds88pCQQJabU8dmwtCeU_MEH85s0wfINox70pGpA_TtrAyNugnM4aKqgya46cDrgQ_JArGT-17cGKzRclNfqnILteuT4-KSnIJpS7Ku3EXdmRu9amHRSERsvecI");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl bg-[#182634] p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-white text-base font-bold leading-tight">Tech Subsidiary</p>
+                  <p class="text-[#90accb] text-sm font-normal leading-normal">Focusing on technology solutions and software development.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAh8H4C04TeQ_LEGiKr2vH78UA1zgmJncTGtE4nuBXwT1K0clCUls40iEfsXv7l62G-U8UGgCqA3fkh3pHdMEld-nSgqum4f05_qXX0y5HFu1hPek4SFZhvXGckZxSDQObMrtg3I6DLRhqoxiJmIv66PaF2xZoK-hnaPD2_4EUiXdXDNBeK8g_y4hdkqWYPi1dKE9ggsLiOcarZ9xm7PV4sNqvQI9W_XtssofhkiI8algFDswP_hwe-PLMBonKwBwH9Z-yYYKSMls0");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl bg-[#182634] p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+                <div class="flex flex-col gap-1 flex-[2_2_0px]">
+                  <p class="text-white text-base font-bold leading-tight">Strategy Subsidiary</p>
+                  <p class="text-[#90accb] text-sm font-normal leading-normal">Providing strategic consulting and business development services.</p>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7zCg6NkspKKegnPu7p9tXiGfOGG1IYQigZMaJgo2v5l5MOPH3kYUO7-2fKNhQZl2oFdTAibKuBZwaUS8GmIW0DEv4MmqbIbRooysLjlcvR0KiMjAyZWa5o4jLcxCSYZcB63ibjVaiCbwXtYuv_q7AD35Q74-VYkabMB-Rz6dkEJZUi9pYDk46d_9YssFDo_juZeXvFuGwGlvgoj8iltrInrpsbpss14R0ycTQ0ou9IS5vo2hpg4khE_rCFGa2OqcOQPgPkrtjOB4");'
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
