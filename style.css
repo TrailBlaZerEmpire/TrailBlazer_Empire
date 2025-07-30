@@ -1,0 +1,31 @@
+<head>
+  <style>
+    /* Your existing styles... */
+
+    /* === START: Styling insight cards === */
+    .insight-card {
+      background-color: #111827;
+      color: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .insight-card .subheading {
+      color: #d1d5db;
+      font-size: 0.875rem;
+    }
+
+    .insight-card h3 {
+      color: #ffffff;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    .insight-icon {
+      color: #e5e7eb;
+      opacity: 1;
+    }
+    /* === END: Styling insight cards === */
+  </style>
+</head>
