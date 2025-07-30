@@ -63,9 +63,3 @@
   font-weight: 600;
 }
 
-
-[data-icon]::before {
-  content: attr(data-icon);
-  color: #f1f5f9;
-  font-weight: 600;
-}
