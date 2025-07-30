@@ -1,0 +1,174 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700"
+    />
+
+    <title>About Me</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+
+    <!-- Block 1 -->
+    <div class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+
+       <header class="flex items-center justify-between px-10 py-3 border-b border-[#e7edf4]">
+        <div class="w-1/3"></div> <!-- empty left space -->
+        <div class="w-1/3 flex justify-center items-center gap-4">
+         <!--
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#0d141c]">
+            <div class="flex justify-center flex-1 gap-8">       
+           --> 
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_535)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_535"><rect width="48" height="48" fill="white"></rect></clipPath>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">SiliconBridge</h2>
+          </div>
+            <div class="flex flex-1 justify-end gap-8">
+
+            <!-- 
+            <div class="flex items-center gap-9">
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Home</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Services</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Blog</a>
+              <a class="text-[#0d141c] text-sm font-medium leading-normal" href="#">Contact</a>
+            </div>
+                        --> 
+            <!-- This is where Block 2 goes -->
+         <nav class="flex items-center gap-9">
+            <a class="text-[#0d141c] text-sm font-medium leading-normal" href="index.html">Home</a>
+            <a class="text-[#0d141c] text-sm font-medium leading-normal" href="about.html">About Me</a>
+        </nav>
+
+            <!--
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7edf4] text-[#0d141c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#0d141c]" data-icon="MagnifyingGlass" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                </svg>
+              </div>
+            </button>
+            --> 
+          </div>
+        </header>
+
+        <!-- About me structure --> 
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#0d141c] tracking-light text-[32px] font-bold leading-tight min-w-72">About Me</p></div>
+            <div class="flex p-4 @container">
+              <div class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+                <div class="flex gap-4">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
+                    style='background-image: url("https://raw.githubusercontent.com/TrailBlaZerEmpire/SiliconBridge/main/Myself.jpg");'
+                   ></div>
+
+                  <div class="flex flex-col justify-center">
+                    <p class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em]">Rheeshaalaen Sabapathy</p>
+                    <p class="text-[#49739c] text-base font-normal leading-normal"> Industry Insight and Semiconductor Consultant </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-[#0d141c] text-base font-normal leading-normal pb-3 pt-1 px-4">
+              Rheeshaalaen is a seasoned professional with extensive experience in FPGA design, 2.5D/3D packaging, physical design, and digital system integration. He shares his
+              insights and expertise through engaging content on Medium and YouTube, making complex topics accessible to a broad audience.
+            </p>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Expertise</h2>
+            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">FPGA Design</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">Proficient in implementing FPGA solutions for various applications - prototype of DNA sequencer</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">2.5D/3D Packaging</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">Specialized in technical knowldege of advanced packaging techniques</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Physical Design</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">Experienced in physical design methodologies and tools.</p>
+              </div>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#cedbe8] py-5">
+                <p class="text-[#49739c] text-sm font-normal leading-normal">Digital System Integration</p>
+                <p class="text-[#0d141c] text-sm font-normal leading-normal">Skilled in understanding and integrating digital systems to meet certain complex requirements.</p>
+              </div>
+            </div>
+            <h2 class="text-[#0d141c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Industry Insights</h2>
+            <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
+              <a href="https://medium.com/@reshal-saba" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#0d141c]">
+              <div class="text-[#0d141c] flex items-center justify-center rounded-lg bg-[#e7edf4] shrink-0 size-12" data-icon="Article" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM184,96a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,96Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,128Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,160Z"
+                  ></path>
+                </svg>
+              </div>
+                 <span class="text-sm font-medium">Medium</span>
+              </a>
+              <div class="flex flex-col justify-center">
+                <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Content Creation</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Published articles on Medium covering FPGA design and advanced packaging.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
+              <a href="https://www.youtube.com/@rheeshaalaen" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#0d141c]">
+              <div class="text-[#0d141c] flex items-center justify-center rounded-lg bg-[#e7edf4] shrink-0 size-12" data-icon="Video" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M164.44,105.34l-48-32A8,8,0,0,0,104,80v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,129.05V95l25.58,17ZM216,40H40A16,16,0,0,0,24,56V168a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,128H40V56H216V168Zm16,40a8,8,0,0,1-8,8H32a8,8,0,0,1,0-16H224A8,8,0,0,1,232,208Z"
+                  ></path>
+                </svg>
+                  </div>
+                <span class="text-sm font-medium">YouTube</span> 
+                  </a>
+              <div class="flex flex-col justify-center">
+                <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Educational Channel</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2">Created educational videos on physical design concept.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-[72px] py-2">
+              <a href="https://www.youtube.com/@rheeshaalaen" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#0d141c]">
+              <div class="text-[#0d141c] flex items-center justify-center rounded-lg bg-[#e7edf4] shrink-0 size-12" data-icon="Video" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M176,88a39.79,39.79,0,0,1,21.53,6.1A12,12,0,0,0,216,84V48a16,16,0,0,0-16-16H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V172a12,12,0,0,0-18.44-10.11c-7.25,4.65-13.41,6.41-21.24,6.11H176a40,40,0,0,1,0-80Zm-56,40a56.07,56.07,0,0,0,55.84,56A48.37,48.37,0,0,0,200,178.89V208H56V48H200V77.23A56.3,56.3,0,0,0,120,128Z"
+                  ></path>
+                </svg>
+              </div>
+                  <span class="text-sm font-medium">YouTube</span> 
+                  </a>
+              <div class="flex flex-col justify-center">
+                <p class="text-[#0d141c] text-base font-medium leading-normal line-clamp-1">Leadership Insight</p>
+                <p class="text-[#49739c] text-sm font-normal leading-normal line-clamp-2"> Outstanding Bussiness Strategist mindset </p>
+                     <!-- End of the About me structure --> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
