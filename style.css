@@ -1,31 +1,58 @@
-<head>
-  <style>
-    /* Your existing styles... */
+.insight-section {
+  padding: 1rem;
+}
 
-    /* === START: Styling insight cards === */
-    .insight-card {
-      background-color: #111827;
-      color: #ffffff;
-      border-radius: 0.75rem;
-      padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    }
+.insight-entry {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
 
-    .insight-card .subheading {
-      color: #d1d5db;
-      font-size: 0.875rem;
-    }
+.insight-icon {
+  min-width: 40px;
+  height: 40px;
+  background-color: #374151; /* Tailwind slate-700 */
+  color: #ffffff;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 1;
+}
 
-    .insight-card h3 {
-      color: #ffffff;
-      font-size: 1.125rem;
-      font-weight: 700;
-    }
+.insight-icon::before {
+  content: attr(data-icon);
+  font-size: 10px;
+  color: #ffffff;
+  text-align: center;
+  padding: 2px;
+}
 
-    .insight-icon {
-      color: #e5e7eb;
-      opacity: 1;
-    }
-    /* === END: Styling insight cards === */
-  </style>
-</head>
+.insight-card {
+  background-color: #111827; /* dark navy */
+  color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.insight-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.insight-card .subheading {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  margin-bottom: 0.25rem;
+}
+
+.insight-card p {
+  font-size: 0.875rem;
+  margin: 0;
+}
