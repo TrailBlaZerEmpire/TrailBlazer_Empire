@@ -57,8 +57,3 @@
   margin: 0;
 }
 
-[data-icon]::before {
-  content: attr(data-icon);
-  color: #1e293b;
-  font-weight: 600;
-}
