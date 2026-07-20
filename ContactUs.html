@@ -1,190 +1,321 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Contact TrailBlazer Empire in Malaysia or Singapore for partnerships, ventures, and business enquiries."
     />
-
-    <title>Contact Us</title>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
+    <title>Contact | TrailBlazer Empire</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --page: #0c131c;
+        --panel: #121f2b;
+        --panel-soft: #101b26;
+        --line: #2b475f;
+        --line-bright: #42759d;
+        --text: #f4f8fb;
+        --muted: #98afc3;
+        --accent: #77bbee;
+        --accent-strong: #3f9ddd;
+        --gold: #d5ad67;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 85% 4%, rgba(58, 130, 183, 0.16), transparent 30rem),
+          radial-gradient(circle at 5% 62%, rgba(30, 88, 124, 0.12), transparent 28rem),
+          var(--page);
+        color: var(--text);
+        font-family: "Work Sans", sans-serif;
+      }
+
+      .site-header {
+        background: rgba(12, 19, 28, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        font-size: 0.73rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .contact-shell {
+        border: 1px solid rgba(66, 117, 157, 0.36);
+        background: linear-gradient(145deg, rgba(21, 37, 51, 0.96), rgba(13, 24, 34, 0.96));
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+      }
+
+      .contact-form {
+        background: rgba(10, 19, 28, 0.58);
+        border: 1px solid rgba(65, 105, 137, 0.33);
+      }
+
+      .field-label {
+        color: #dce8f1;
+        font-size: 0.78rem;
+        font-weight: 650;
+      }
+
+      .form-field {
+        background: #172735 !important;
+        border: 1px solid #304e67 !important;
+        color: #f5f8fb !important;
+        outline: none;
+        transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      }
+
+      .form-field::placeholder {
+        color: #718ca2;
+      }
+
+      .form-field:focus {
+        background: #1a2c3c !important;
+        border-color: var(--accent) !important;
+        box-shadow: 0 0 0 3px rgba(119, 187, 238, 0.13) !important;
+      }
+
+      .submit-button {
+        background: linear-gradient(135deg, #3b9ddd, #5badde);
+        box-shadow: 0 12px 28px rgba(39, 130, 193, 0.24);
+        transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+      }
+
+      .submit-button:hover {
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+        box-shadow: 0 16px 34px rgba(39, 130, 193, 0.32);
+      }
+
+      .office-card,
+      .contact-method {
+        border: 1px solid rgba(65, 105, 137, 0.38);
+        background: rgba(18, 33, 46, 0.88);
+      }
+
+      .contact-method {
+        transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      }
+
+      a.contact-method:hover {
+        transform: translateY(-2px);
+        border-color: rgba(119, 187, 238, 0.68);
+        background: rgba(24, 44, 60, 0.98);
+      }
+
+      .icon-box {
+        align-items: center;
+        background: #1a3a50;
+        border: 1px solid rgba(119, 187, 238, 0.28);
+        color: #bfe1f8;
+        display: flex;
+        flex: none;
+        height: 2.55rem;
+        justify-content: center;
+        width: 2.55rem;
+      }
+
+      .availability-note {
+        border-left: 2px solid var(--gold);
+        background: rgba(78, 58, 27, 0.18);
+      }
+
+      @media (max-width: 767px) {
+        .desktop-nav {
+          display: none;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-[#101923] dark group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
-      <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#223549] px-10 py-3">
-          <div class="flex items-center gap-4 text-white">
-            <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z"
-                  fill="currentColor"
-                ></path>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236ZM4.95178 15.2312L21.4543 41.6973C22.6288 43.5809 25.3712 43.5809 26.5457 41.6973L43.0534 15.223C43.0709 15.1948 43.0878 15.1662 43.104 15.1371L41.3563 14.1648C43.104 15.1371 43.1038 15.1374 43.104 15.1371L43.1051 15.135L43.1065 15.1325L43.1101 15.1261L43.1199 15.1082C43.1276 15.094 43.1377 15.0754 43.1497 15.0527C43.1738 15.0075 43.2062 14.9455 43.244 14.8701C43.319 14.7208 43.4196 14.511 43.5217 14.2683C43.6901 13.8679 44 13.0689 44 12.2609C44 10.5573 43.003 9.22254 41.8558 8.2791C40.6947 7.32427 39.1354 6.55361 37.385 5.94477C33.8654 4.72057 29.133 4 24 4C18.867 4 14.1346 4.72057 10.615 5.94478C8.86463 6.55361 7.30529 7.32428 6.14419 8.27911C4.99695 9.22255 3.99999 10.5573 3.99999 12.2609C3.99999 13.1275 4.29264 13.9078 4.49321 14.3607C4.60375 14.6102 4.71348 14.8196 4.79687 14.9689C4.83898 15.0444 4.87547 15.1065 4.9035 15.1529C4.91754 15.1762 4.92954 15.1957 4.93916 15.2111L4.94662 15.223L4.95178 15.2312ZM35.9868 18.996L24 38.22L12.0131 18.996C12.4661 19.1391 12.9179 19.2658 13.3617 19.3718C16.4281 20.1039 20.0901 20.5217 24 20.5217C27.9099 20.5217 31.5719 20.1039 34.6383 19.3718C35.082 19.2658 35.5339 19.1391 35.9868 18.996Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </div>
-            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">TrailBlazer Empire</h2>
-          </div> 
-          <div class="flex flex-1 justify-end gap-8">
-            <!-- ✅ NAVIGATION LINKS: Updated to be real links -->
-             <nav class="flex items-center gap-9">
-               <a class="text-white text-sm font-medium leading-normal" href="index.html">Home</a>
-               <a class="text-white text-sm font-medium leading-normal" href="OrgChart.html">Org Chart</a>
-               <a class="text-white text-sm font-medium leading-normal" href="AboutUs.html">About Us</a>
-              <a class="text-white text-sm font-medium leading-normal" href="ContactUs.html">Contact Us</a>
-             </nav>
-            <!-- old script 
-            <div class="flex items-center gap-9">
-              <a class="text-white text-sm font-medium leading-normal" href="#">Home</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">Org Chart</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">About Us</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">Contact Us</a>
-            </div>
-            <button
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#3490f3] text-white text-sm font-bold leading-normal tracking-[0.015em]"
-            >
-              <span class="truncate">Get Started</span>
-            </button>
-            --> 
-          </div>
-        </header>
-        <div class="px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="flex flex-wrap justify-between gap-3 p-4">
-              <div class="flex min-w-72 flex-col gap-3">
-                <p class="text-white tracking-light text-[32px] font-bold leading-tight">Contact Us</p>
-                <p class="text-[#90accb] text-sm font-normal leading-normal">We're here to help. Reach out to us with any questions or inquiries.</p>
-              </div>
-            </div>
-            <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">TrailBlazer Empire (Parent Company)</h3>
-            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
-              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#314c68] py-5">
-                <p class="text-[#90accb] text-sm font-normal leading-normal">Address</p>
-                <p class="text-white text-sm font-normal leading-normal">Bayan Lepas, Penang, Malaysia</p>
-              </div>
-              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#314c68] py-5">
-                <p class="text-[#90accb] text-sm font-normal leading-normal">Phone</p>
-                <p class="text-white text-sm font-normal leading-normal"> Email Me </p>
-              </div>
-              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#314c68] py-5">
-                <p class="text-[#90accb] text-sm font-normal leading-normal">Email me </p>
-                <p class="text-white text-sm font-normal leading-normal">rheeshaalaen@trailblazerempire.com </p>
-              </div>
-            </div>
+    <header class="site-header sticky top-0 z-50 border-b border-[#253d52]">
+      <div class="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-4 md:px-8">
+        <a href="index.html" class="flex items-center gap-3 text-white" aria-label="TrailBlazer Empire home">
+          <span class="flex size-9 items-center justify-center rounded-lg border border-[#3d6687] bg-[#172b3c]">
+            <svg viewBox="0 0 48 48" fill="none" class="size-5" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="block text-sm font-extrabold tracking-[0.02em] md:text-base">TrailBlazer Empire</span>
+            <span class="block text-[10px] font-medium uppercase tracking-[0.16em] text-[#8ba8c0]">Global Contact</span>
+          </span>
+        </a>
 
-            <!--
-            <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Subsidiaries</h3>
-            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
---> 
-            <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Subsidiaries</h3>
-            <div class="flex flex-wrap gap-6 px-4 py-4 justify-center">
-
-              <!-- Subsidiary 1: Finance -->
-              <div class="bg-[#1a2533] border border-[#314c68] rounded-xl p-5 min-w-[220px] max-w-[320px] flex-1">
-              <p class="text-[#90accb] text-sm font-normal">Finance</p>
-              <h4 class="text-white text-base font-semibold pb-2">Capital Compass</h4>
-              <p class="text-[#90accb] text-xs font-normal">Address</p>
-              <p class="text-white text-xs pb-1">Bayan Lepas, Penang, Malaysia</p>
-              <p class="text-[#90accb] text-xs font-normal">Phone</p>
-              <p class="text-white text-xs pb-1"> Email me</p>
-              <p class="text-[#90accb] text-xs font-normal">Email</p>
-              <p class="text-white text-xs">rheeshaalaen@trailblazerempire.com </p>
-              </div>
-
-              <!-- Subsidiary 2: Tech -->
-              <div class="bg-[#1a2533] border border-[#314c68] rounded-xl p-5 min-w-[220px] max-w-[320px] flex-1">
-              <p class="text-[#90accb] text-sm font-normal">Tech</p>
-              <h4 class="text-white text-base font-semibold pb-2">Vector Bound</h4>
-              <p class="text-[#90accb] text-xs font-normal">Address</p>
-              <p class="text-white text-xs pb-1">Bayan Lepas, Penang, Malaysia</p>
-              <p class="text-[#90accb] text-xs font-normal">Phone</p>
-              <p class="text-white text-xs pb-1">Email me </p>
-              <p class="text-[#90accb] text-xs font-normal">Email</p>
-              <p class="text-white text-xs">rheeshaalaen@trailblazerempire.com </p>
-              </div>
-              
-              <!-- Subsidiary 3: Strategy -->
-              <div class="bg-[#1a2533] border border-[#314c68] rounded-xl p-5 min-w-[220px] max-w-[320px] flex-1">
-              <p class="text-[#90accb] text-sm font-normal">Strategy</p>
-              <h4 class="text-white text-base font-semibold pb-2">VisionCraft Strategy</h4>
-              <p class="text-[#90accb] text-xs font-normal">Address</p>
-              <p class="text-white text-xs pb-1">Bayan Lepas, Penang, Malaysia</p>
-              <p class="text-[#90accb] text-xs font-normal">Phone</p>
-              <p class="  text-white text-xs pb-1">email me</p>
-              <p class="text-[#90accb] text-xs font-normal">Email</p>
-              <p class="text-white text-xs">rheeshaalaen@trailblazerempire.com </p>
-              </div>
-              </div>
-          
-              <form action="https://formspree.io/f/mldlwdqa" method="POST">
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                  <label class="flex flex-col min-w-40 flex-1">
-                    <p class="text-white text-base font-medium leading-normal pb-2">Name</p>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name"
-                      required
-                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223549] focus:border-none h-14 placeholder:text-[#90accb]"
-                     />
-                  </label>
-                </div>
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                  <label class="flex flex-col min-w-40 flex-1">
-                    <p class="text-white text-base font-medium leading-normal pb-2">Email</p>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      required
-                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223549] focus:border-none h-14 placeholder:text-[#90accb]"
-                    />
-                  </label>
-                </div>
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                  <label class="flex flex-col min-w-40 flex-1">
-                    <p class="text-white text-base font-medium leading-normal pb-2">Subject</p>
-                    <input
-                      type="text"
-                      name="subject"
-                      placeholder="Subject"
-                      required
-                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223549] focus:border-none h-14 placeholder:text-[#90accb]"
-                    />
-                  </label>
-                </div>
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                  <label class="flex flex-col min-w-40 flex-1">
-                    <p class="text-white text-base font-medium leading-normal pb-2">Message</p>
-                      <textarea
-                        name="message"
-                        placeholder="Your Message"
-                        required
-                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223549] focus:border-none min-h-36 placeholder:text-[#90accb]"
-                      ></textarea>
-                    </label>
-                  </div>
-                  <div class="flex px-4 py-3 justify-start">
-                    <button
-                      type="submit"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#3490f3] text-white text-sm font-bold leading-normal tracking-tight"
-                    >
-                      <span class="truncate">Send Message</span>
-                    </button>
-                  </div>
-                </form>
-          </div>
-        </div>
+        <nav class="desktop-nav flex items-center gap-8" aria-label="Primary navigation">
+          <a class="text-sm font-medium text-[#aac0d3] transition hover:text-white" href="index.html">Home</a>
+          <a class="text-sm font-medium text-[#aac0d3] transition hover:text-white" href="OrgChart.html">Organization</a>
+          <a class="text-sm font-medium text-[#aac0d3] transition hover:text-white" href="AboutUs.html">About Us</a>
+          <a class="text-sm font-semibold text-white" href="ContactUs.html" aria-current="page">Contact</a>
+        </nav>
       </div>
-    </div>
+    </header>
+
+    <main class="mx-auto max-w-[1200px] px-5 py-12 md:px-8 md:py-16">
+      <section class="mx-auto max-w-3xl text-center">
+        <p class="eyebrow">One point of contact</p>
+        <h1 class="mt-4 text-4xl font-extrabold leading-tight tracking-[-0.035em] text-white md:text-6xl">Start a meaningful conversation.</h1>
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#9db3c7] md:text-lg">
+          For partnerships, venture enquiries, institutional relationships, or general business matters, contact TrailBlazer Empire directly. We will route your enquiry to the right part of the group.
+        </p>
+      </section>
+
+      <section class="contact-shell mt-12 grid overflow-hidden rounded-3xl lg:grid-cols-[1.12fr_0.88fr]" aria-label="Contact TrailBlazer Empire">
+        <div class="p-5 md:p-9 lg:p-10">
+          <div class="mb-7">
+            <p class="eyebrow">Send a message</p>
+            <h2 class="mt-3 text-2xl font-bold tracking-[-0.02em] text-white md:text-3xl">Tell us what you would like to discuss.</h2>
+            <p class="mt-2 text-sm leading-6 text-[#91a9bd]">Share enough context for us to understand the opportunity, question, or next step.</p>
+          </div>
+
+          <form class="contact-form rounded-2xl p-5 md:p-7" action="https://formspree.io/f/mldlwdqa" method="POST">
+            <input type="hidden" name="_subject" value="New TrailBlazer Empire contact enquiry" />
+            <input class="hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <label class="block">
+                <span class="field-label mb-2 block">Name</span>
+                <input class="form-field h-12 w-full rounded-xl px-4 text-sm" type="text" name="name" placeholder="Your name" autocomplete="name" required />
+              </label>
+              <label class="block">
+                <span class="field-label mb-2 block">Email</span>
+                <input class="form-field h-12 w-full rounded-xl px-4 text-sm" type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+              </label>
+            </div>
+
+            <div class="mt-5 grid gap-5 md:grid-cols-2">
+              <label class="block">
+                <span class="field-label mb-2 block">Organization <span class="font-normal text-[#708ba1]">(optional)</span></span>
+                <input class="form-field h-12 w-full rounded-xl px-4 text-sm" type="text" name="organization" placeholder="Company or organization" autocomplete="organization" />
+              </label>
+              <label class="block">
+                <span class="field-label mb-2 block">Subject</span>
+                <input class="form-field h-12 w-full rounded-xl px-4 text-sm" type="text" name="subject" placeholder="How can we help?" required />
+              </label>
+            </div>
+
+            <label class="mt-5 block">
+              <span class="field-label mb-2 block">Message</span>
+              <textarea class="form-field min-h-40 w-full resize-y rounded-xl px-4 py-3 text-sm leading-6" name="message" placeholder="Tell us about your enquiry..." required></textarea>
+            </label>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p class="max-w-xs text-xs leading-5 text-[#718ba1]">Your message is submitted securely through our external form provider.</p>
+              <button class="submit-button inline-flex h-12 items-center justify-center gap-2 rounded-xl px-6 text-sm font-bold text-white" type="submit">
+                Send Message
+                <svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true">
+                  <path d="m5 12 14-7-4 14-3-5-7-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                  <path d="m12 14 3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="border-t border-[#29465e] bg-[#0e1a25]/80 p-5 md:p-9 lg:border-l lg:border-t-0 lg:p-10" aria-labelledby="global-offices-title">
+          <p class="eyebrow">Direct contact</p>
+          <h2 id="global-offices-title" class="mt-3 text-2xl font-bold text-white">Global offices</h2>
+          <p class="mt-2 text-sm leading-6 text-[#91a9bd]">Reach the group through our Malaysia or Singapore contact points.</p>
+
+          <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <article class="office-card rounded-2xl p-5">
+              <div class="flex items-start gap-4">
+                <span class="icon-box rounded-xl">
+                  <svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true">
+                    <path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.7" />
+                    <circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.7" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-[0.13em] text-[#77bbee]">Malaysia</p>
+                  <address class="mt-2 text-sm not-italic leading-6 text-[#d9e4ed]">Krystal Point<br />11900 Bayan Baru<br />Pulau Pinang</address>
+                </div>
+              </div>
+            </article>
+
+            <article class="office-card rounded-2xl p-5">
+              <div class="flex items-start gap-4">
+                <span class="icon-box rounded-xl">
+                  <svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true">
+                    <path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.7" />
+                    <circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.7" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-[0.13em] text-[#77bbee]">Singapore</p>
+                  <address class="mt-2 text-sm not-italic leading-6 text-[#d9e4ed]">Paya Lebar Square<br />Singapore 409051</address>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="mt-7 space-y-3">
+            <a class="contact-method flex items-center gap-4 rounded-2xl p-4" href="mailto:rheeshaalaen@trailblazer.com">
+              <span class="icon-box rounded-xl">
+                <svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true">
+                  <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                  <path d="m5 7 7 6 7-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="min-w-0">
+                <span class="block text-xs font-semibold uppercase tracking-[0.1em] text-[#7391a9]">Email</span>
+                <span class="mt-1 block break-all text-sm font-semibold text-white">rheeshaalaen@trailblazer.com</span>
+              </span>
+            </a>
+
+            <a class="contact-method flex items-center gap-4 rounded-2xl p-4" href="https://wa.me/60174416515" target="_blank" rel="noopener noreferrer">
+              <span class="icon-box rounded-xl">
+                <svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true">
+                  <path d="M8 4.5c.4-.3 1.2-.1 1.5.5l1.2 2.6c.2.5.1 1-.3 1.4l-1 1c.8 1.8 2.3 3.3 4.1 4.1l1-1c.4-.4 1-.5 1.4-.3l2.6 1.2c.6.3.8 1 .5 1.5-.8 1.4-2.3 2.3-4 2.1-5.5-.8-9.8-5.1-10.6-10.6-.2-1.7.7-3.2 2.1-4Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span>
+                <span class="block text-xs font-semibold uppercase tracking-[0.1em] text-[#7391a9]">Malaysia · WhatsApp</span>
+                <span class="mt-1 block text-sm font-semibold text-white">+60 17 441 6515</span>
+              </span>
+            </a>
+
+            <a class="contact-method flex items-center gap-4 rounded-2xl p-4" href="https://wa.me/6587539315" target="_blank" rel="noopener noreferrer">
+              <span class="icon-box rounded-xl">
+                <svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true">
+                  <path d="M8 4.5c.4-.3 1.2-.1 1.5.5l1.2 2.6c.2.5.1 1-.3 1.4l-1 1c.8 1.8 2.3 3.3 4.1 4.1l1-1c.4-.4 1-.5 1.4-.3l2.6 1.2c.6.3.8 1 .5 1.5-.8 1.4-2.3 2.3-4 2.1-5.5-.8-9.8-5.1-10.6-10.6-.2-1.7.7-3.2 2.1-4Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span>
+                <span class="block text-xs font-semibold uppercase tracking-[0.1em] text-[#7391a9]">Singapore · WhatsApp</span>
+                <span class="mt-1 block text-sm font-semibold text-white">+65 8753 9315</span>
+              </span>
+            </a>
+          </div>
+
+          <div class="availability-note mt-7 rounded-r-xl px-4 py-3">
+            <p class="text-xs font-semibold uppercase tracking-[0.11em] text-[#d5b97f]">Best way to reach us</p>
+            <p class="mt-1 text-sm leading-6 text-[#aab9c6]">Use the form for detailed enquiries or WhatsApp for a direct conversation.</p>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="mt-10 border-t border-[#22394d] py-8 text-center text-sm text-[#6f899f]">TrailBlazer Empire © 2026 · Malaysia · Singapore</footer>
+    </main>
   </body>
 </html>
