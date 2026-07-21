@@ -3,390 +3,446 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Explore TrailBlazer Empire's group structure, venture portfolio, and capital-enabled operating model."
-    />
     <title>Organization | TrailBlazer Empire</title>
+    <meta name="description" content="Explore TrailBlazer Empire's parent organization, five-venture portfolio and founder-led operating model." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.trailblazerempire.com/OrgChart.html" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <style>
       :root {
-        color-scheme: dark;
-        --page: #0c131c;
-        --panel: #121e2a;
-        --panel-strong: #172838;
-        --line: #2c4861;
-        --line-bright: #44749b;
-        --text: #f3f7fb;
-        --muted: #9ab1c6;
-        --accent: #74b7ec;
-        --accent-soft: #1b3b53;
-        --gold: #d6ad65;
+        color-scheme: light;
+        --canvas: #f7f4ec;
+        --surface: #ffffff;
+        --surface-soft: #f1ede3;
+        --ink: #17211c;
+        --muted: #5f6b63;
+        --green: #1f6b52;
+        --green-deep: #174d3c;
+        --gold: #d39a3c;
+        --terracotta: #a85c43;
+        --stone: #ded8cc;
+        --stone-strong: #c9c1b4;
+        --radius-sm: 0.8rem;
+        --radius-md: 1.25rem;
+        --radius-lg: 2rem;
+        --max: 1320px;
+        --shadow: 0 24px 65px rgba(71, 63, 48, 0.11);
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
+        overflow-x: hidden;
         background:
-          radial-gradient(circle at 82% 7%, rgba(59, 127, 180, 0.15), transparent 30rem),
-          radial-gradient(circle at 10% 45%, rgba(25, 84, 119, 0.12), transparent 26rem),
-          var(--page);
-        color: var(--text);
-        font-family: "Work Sans", sans-serif;
+          radial-gradient(circle at 88% 3%, rgba(211, 154, 60, 0.13), transparent 31rem),
+          radial-gradient(circle at 5% 32%, rgba(31, 107, 82, 0.08), transparent 28rem),
+          var(--canvas);
+        color: var(--ink);
+        font-family: "Work Sans", Arial, sans-serif;
+        line-height: 1.6;
       }
+      button, a { font: inherit; }
+      a { color: inherit; }
+      .wrap { width: min(calc(100% - 2.5rem), var(--max)); margin-inline: auto; }
+      .scroll-progress { position: fixed; inset: 0 auto auto 0; z-index: 100; width: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--green)); }
 
       .site-header {
-        background: rgba(12, 19, 28, 0.9);
-        backdrop-filter: blur(14px);
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid rgba(222, 216, 204, 0.92);
+        background: rgba(247, 244, 236, 0.9);
+        backdrop-filter: blur(18px);
       }
+      .header-inner { min-height: 4.6rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+      .brand { display: inline-flex; align-items: center; gap: 0.75rem; color: var(--ink); font-weight: 800; letter-spacing: -0.02em; text-decoration: none; }
+      .brand-mark { width: 2.3rem; height: 2.3rem; display: grid; place-items: center; border: 1px solid var(--stone-strong); border-radius: 0.7rem; background: white; color: var(--green); transition: transform 300ms ease, border-color 300ms ease; }
+      .brand:hover .brand-mark { transform: rotate(45deg); border-color: var(--gold); }
+      .brand-mark::before { content: "◆"; font-size: 0.84rem; }
+      .brand-subtitle { display: block; color: #7a837c; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+      .primary-nav { display: flex; align-items: center; gap: 1.75rem; }
+      .primary-nav a { color: #657168; font-size: 0.86rem; font-weight: 650; text-decoration: none; }
+      .primary-nav a:hover, .primary-nav a[aria-current="page"] { color: var(--ink); }
 
-      .section-shell {
-        border: 1px solid rgba(68, 116, 155, 0.34);
-        background: linear-gradient(145deg, rgba(23, 40, 56, 0.76), rgba(12, 22, 32, 0.92));
-        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.23);
+      .eyebrow { margin: 0; color: var(--green); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+      .hero { position: relative; isolation: isolate; padding: clamp(5.5rem, 10vw, 9rem) 0 4.5rem; }
+      .hero::before, .hero::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
+      .hero::before { width: 34rem; height: 34rem; top: -18rem; right: -8rem; border: 1px solid rgba(31, 107, 82, 0.12); }
+      .hero::after { width: 19rem; height: 19rem; top: -7rem; right: -1rem; border: 1px solid rgba(211, 154, 60, 0.2); }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { max-width: 15ch; margin: 1rem 0 1.4rem; font-size: clamp(3.3rem, 7.4vw, 6.8rem); line-height: 0.94; letter-spacing: -0.06em; }
+      .hero-copy { max-width: 62rem; color: #536159; font-size: clamp(1.08rem, 1.8vw, 1.3rem); line-height: 1.75; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
+      .button { min-height: 3rem; display: inline-flex; align-items: center; gap: 0.55rem; justify-content: center; padding: 0.75rem 1.15rem; border: 1px solid var(--stone-strong); border-radius: 0.8rem; background: white; color: #26372e; font-size: 0.85rem; font-weight: 750; text-decoration: none; transition: transform 220ms ease, border-color 220ms ease; }
+      .button:hover { transform: translateY(-2px); border-color: var(--green); }
+      .button-primary { border-color: transparent; background: linear-gradient(135deg, var(--green-deep), #2d8066); color: white; box-shadow: 0 14px 30px rgba(31, 107, 82, 0.2); }
+      .hero-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 4rem; overflow: hidden; border: 1px solid var(--stone); border-radius: var(--radius-md); background: var(--stone); box-shadow: 0 14px 36px rgba(71, 63, 48, 0.06); }
+      .hero-fact { padding: 1.3rem 1.5rem; background: rgba(255,255,255,.9); }
+      .hero-fact strong { display: block; font-size: 1.05rem; }
+      .hero-fact span { color: #6d786f; font-size: 0.79rem; }
+
+      .structure-nav { position: sticky; top: 4.6rem; z-index: 20; border-block: 1px solid var(--stone); background: rgba(247, 244, 236, 0.92); backdrop-filter: blur(16px); }
+      .structure-nav-inner { display: flex; gap: 0.45rem; overflow-x: auto; padding: 0.65rem 0; scrollbar-width: none; }
+      .structure-link { flex: none; padding: 0.5rem 0.8rem; border-radius: 999px; color: #6e786f; font-size: 0.73rem; font-weight: 750; text-decoration: none; }
+      .structure-link:hover, .structure-link.is-active { color: var(--green-deep); background: rgba(31, 107, 82, 0.09); box-shadow: inset 0 0 0 1px rgba(31, 107, 82, 0.18); }
+
+      .chapter { position: relative; padding: clamp(6rem, 9vw, 9rem) 0; }
+      .chapter::before { content: attr(data-index); position: absolute; top: 2.4rem; left: max(1.25rem, calc((100vw - var(--max)) / 2)); color: rgba(31, 107, 82, 0.08); font-size: clamp(4rem, 9vw, 8rem); font-weight: 800; line-height: 1; letter-spacing: -0.08em; pointer-events: none; }
+      .chapter-alt { background: linear-gradient(180deg, rgba(235, 229, 217, 0.6), rgba(247, 244, 236, 0.16)); }
+      .section-heading { position: relative; max-width: 62rem; margin-bottom: 3.5rem; }
+      .section-heading h2 { max-width: 18ch; margin: 0.65rem 0 1rem; font-size: clamp(2.7rem, 5.2vw, 4.9rem); line-height: 1.02; letter-spacing: -0.05em; }
+      .section-heading p { max-width: 51rem; color: var(--muted); font-size: 1rem; }
+      .section-tag { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.42rem 0.66rem; border: 1px solid var(--stone); border-radius: 999px; background: rgba(255,255,255,.72); color: #6d756f; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+
+      .structure-shell { padding: clamp(1.2rem, 3vw, 2.4rem); border: 1px solid var(--stone); border-radius: var(--radius-lg); background: rgba(255,255,255,.72); box-shadow: var(--shadow); }
+      .parent-node, .founder-node { position: relative; z-index: 2; width: min(100%, 42rem); margin-inline: auto; padding: 2rem; border: 1px solid rgba(31, 107, 82, 0.34); border-radius: var(--radius-md); background: linear-gradient(135deg, #174d3c, #1f6b52); color: white; text-align: center; box-shadow: 0 22px 55px rgba(31, 107, 82, 0.18); }
+      .parent-node::after, .founder-node::after { content: ""; position: absolute; left: 50%; bottom: -3rem; width: 1px; height: 3rem; background: var(--stone-strong); }
+      .node-level { margin: 0; color: #efc97f; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+      .parent-node h3, .founder-node h3 { margin: 0.55rem 0 0.4rem; color: white; font-size: clamp(1.7rem, 3vw, 2.4rem); letter-spacing: -0.035em; }
+      .parent-node p:last-child, .founder-node p:last-child { margin-bottom: 0; color: #dbe9e2; font-size: 0.86rem; }
+      .parent-capabilities { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+      .parent-capabilities span { padding: 0.38rem 0.58rem; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; color: #edf6f1; font-size: 0.68rem; }
+
+      .portfolio-stage, .function-stage { position: relative; margin-top: 5.7rem; }
+      .portfolio-stage::before, .function-stage::before { content: ""; position: absolute; top: -2.7rem; left: 8%; right: 8%; height: 1px; background: linear-gradient(90deg, transparent, var(--stone-strong) 7%, var(--stone-strong) 93%, transparent); }
+      .portfolio-grid, .function-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.85rem; }
+      .venture-card, .function-card { position: relative; width: 100%; min-height: 16.5rem; display: flex; flex-direction: column; padding: 1.25rem; border: 1px solid var(--stone); border-radius: var(--radius-md); background: rgba(255,255,255,.9); color: var(--ink); text-align: left; cursor: pointer; box-shadow: 0 12px 30px rgba(71,63,48,.06); transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease; }
+      .venture-card::before, .function-card::before { content: ""; position: absolute; left: 50%; top: -3rem; width: 1px; height: 3rem; background: var(--stone-strong); }
+      .venture-card::after { content: ""; position: absolute; inset: auto 1.2rem 0; height: 3px; border-radius: 999px; background: var(--venture-accent, var(--green)); transform: scaleX(.2); transform-origin: left; transition: transform 280ms ease; }
+      .venture-card:hover, .venture-card[aria-pressed="true"], .function-card:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--venture-accent, var(--green)) 46%, var(--stone)); box-shadow: 0 22px 42px rgba(71,63,48,.1); }
+      .venture-card[aria-pressed="true"]::after, .venture-card:hover::after { transform: scaleX(1); }
+      .venture-number, .function-number { width: 2.15rem; height: 2.15rem; display: grid; place-items: center; border: 1px solid var(--stone); border-radius: 0.68rem; background: var(--surface-soft); color: var(--green); font-size: 0.69rem; font-weight: 800; }
+      .card-kicker { margin: 1.35rem 0 0.3rem; color: var(--venture-accent, var(--green)); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
+      .venture-card h3, .function-card h3 { margin: 0; font-size: 1rem; line-height: 1.35; }
+      .venture-card p:last-child, .function-card p:last-child { margin: 0.75rem 0 0; color: #66736b; font-size: 0.78rem; line-height: 1.55; }
+      .venture-vision { --venture-accent: #b98535; }
+      .venture-capital { --venture-accent: #1f6b52; }
+      .venture-vector { --venture-accent: #9b4965; }
+      .venture-trailbite { --venture-accent: #d46d37; }
+      .venture-nexora { --venture-accent: #6654a3; }
+      .status-chip { margin-left: auto; padding: 0.3rem 0.5rem; border: 1px solid rgba(211,154,60,.34); border-radius: 999px; background: #fbf3e5; color: #95681f; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+      .card-top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+
+      .venture-detail { display: grid; grid-template-columns: 0.45fr 1.25fr auto; gap: 1.5rem; align-items: center; margin-top: 1rem; padding: 1.4rem; border: 1px solid var(--stone); border-radius: var(--radius-md); background: var(--surface-soft); }
+      .venture-detail-label { color: #887d6f; font-size: 0.67rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+      .venture-detail h3 { margin: 0; font-size: 1.15rem; }
+      .venture-detail p { margin: 0.3rem 0 0; color: #5e6b63; font-size: 0.84rem; }
+      .venture-detail a { color: var(--green); font-size: 0.78rem; font-weight: 800; text-decoration: none; }
+      .venture-detail a:hover { text-decoration: underline; }
+      .legal-note { margin: 1rem 0 0; color: #7a7165; font-size: 0.71rem; }
+
+      .founder-focus { width: min(100%, 58rem); display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; margin: 5.8rem auto 0; padding: 1.3rem; border: 1px solid rgba(211,154,60,.38); border-radius: var(--radius-md); background: #fbf4e8; }
+      .focus-symbol { width: 3rem; height: 3rem; display: grid; place-items: center; border: 1px solid rgba(211,154,60,.34); border-radius: 0.9rem; background: white; color: #95681f; font-weight: 800; }
+      .founder-focus strong { display: block; color: #7d581f; }
+      .founder-focus p { margin: 0.25rem 0 0; color: #756b5d; font-size: 0.82rem; }
+      .function-stage { margin-top: 5.8rem; }
+      .function-card { min-height: 17.5rem; cursor: default; }
+      .function-card::after { content: ""; position: absolute; inset: auto 1.2rem 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+      .hire-label { margin-left: auto; color: #95681f; font-size: 0.55rem; font-weight: 800; letter-spacing: 0.07em; text-align: right; text-transform: uppercase; }
+
+      .growth-path { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1px; margin-top: 1rem; overflow: hidden; border: 1px solid var(--stone); border-radius: var(--radius-md); background: var(--stone); }
+      .growth-step { padding: 1.35rem; background: rgba(255,255,255,.9); }
+      .growth-step strong { color: var(--green); font-size: 0.68rem; letter-spacing: 0.11em; text-transform: uppercase; }
+      .growth-step p { margin: 0.45rem 0 0; color: #627068; font-size: 0.8rem; }
+
+      .cta { margin-bottom: 4rem; padding: clamp(2rem, 5vw, 4.4rem); border: 1px solid rgba(31,107,82,.24); border-radius: var(--radius-lg); background: radial-gradient(circle at 84% 18%, rgba(211,154,60,.25), transparent 20rem), linear-gradient(135deg, var(--green-deep), var(--green)); color: white; box-shadow: 0 28px 60px rgba(31,107,82,.2); }
+      .cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+      .cta .eyebrow { color: #efc97f; }
+      .cta h2 { margin: 0.5rem 0 0.75rem; color: white; font-size: clamp(2.3rem, 4.6vw, 4.2rem); line-height: 1; letter-spacing: -0.045em; }
+      .cta p { max-width: 46rem; margin-bottom: 0; color: #dce9e3; }
+      .cta .button { border-color: white; background: white; color: #173329; }
+      footer { padding: 2.2rem 0; border-top: 1px solid var(--stone); background: var(--surface-soft); color: #68756d; font-size: 0.78rem; }
+      .footer-inner { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+
+      .motion-ready .reveal { opacity: 0; transform: translateY(25px); transition: opacity 700ms ease, transform 700ms cubic-bezier(.2,.75,.25,1); }
+      .motion-ready .reveal.is-visible { opacity: 1; transform: none; }
+      :focus-visible { outline: 3px solid rgba(31,107,82,.7); outline-offset: 3px; }
+
+      @media (max-width: 1080px) {
+        .portfolio-grid, .function-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .portfolio-stage::before, .function-stage::before, .venture-card::before, .function-card::before, .parent-node::after, .founder-node::after { display: none; }
+        .venture-card:last-child, .function-card:last-child { grid-column: 1 / -1; }
+        .portfolio-stage, .function-stage, .founder-focus { margin-top: 1rem; }
       }
-
-      .eyebrow {
-        color: var(--accent);
-        font-size: 0.73rem;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
+      @media (max-width: 720px) {
+        .wrap { width: min(calc(100% - 1.5rem), var(--max)); }
+        .header-inner { align-items: flex-start; flex-direction: column; gap: 0.75rem; padding: 0.9rem 0; }
+        .primary-nav { width: 100%; gap: 1rem; overflow-x: auto; padding-bottom: 0.2rem; }
+        .primary-nav a { white-space: nowrap; }
+        .hero { padding-top: 4rem; }
+        .hero-facts, .portfolio-grid, .function-grid, .growth-path { grid-template-columns: 1fr; }
+        .venture-card:last-child, .function-card:last-child { grid-column: auto; }
+        .structure-nav { top: 7.6rem; }
+        .chapter { padding: 5.5rem 0; }
+        .chapter::before { top: 1.5rem; }
+        .venture-detail { grid-template-columns: 1fr; gap: 0.65rem; }
+        .founder-focus { grid-template-columns: 1fr; }
+        .cta-inner { grid-template-columns: 1fr; }
       }
-
-      .hierarchy-label {
-        border: 1px solid rgba(116, 183, 236, 0.24);
-        background: rgba(27, 59, 83, 0.7);
-        color: #b9daf3;
-      }
-
-      .parent-node,
-      .founder-node {
-        position: relative;
-        border: 1px solid var(--line-bright);
-        background: linear-gradient(135deg, rgba(30, 61, 83, 0.98), rgba(18, 33, 47, 0.98));
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 255, 255, 0.04);
-      }
-
-      .parent-node::after,
-      .founder-node::after {
-        bottom: -2.5rem;
-        content: "";
-        height: 2.5rem;
-        left: 50%;
-        position: absolute;
-        width: 1px;
-        background: linear-gradient(var(--line-bright), var(--line));
-      }
-
-      .portfolio-grid,
-      .function-grid {
-        position: relative;
-      }
-
-      .venture-card,
-      .function-card {
-        border: 1px solid rgba(68, 116, 155, 0.36);
-        background: rgba(18, 30, 42, 0.92);
-        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
-        position: relative;
-        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-      }
-
-      .venture-card:hover,
-      .function-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(116, 183, 236, 0.68);
-        background: rgba(23, 40, 56, 0.98);
-      }
-
-      .venture-index,
-      .function-index {
-        align-items: center;
-        background: var(--accent-soft);
-        border: 1px solid rgba(116, 183, 236, 0.32);
-        color: #cce7fb;
-        display: inline-flex;
-        font-size: 0.72rem;
-        font-weight: 800;
-        height: 2rem;
-        justify-content: center;
-        letter-spacing: 0.05em;
-        width: 2rem;
-      }
-
-      .status-chip {
-        border: 1px solid rgba(214, 173, 101, 0.28);
-        background: rgba(97, 72, 31, 0.22);
-        color: #e7c98f;
-      }
-
-      .focus-card {
-        border: 1px solid rgba(214, 173, 101, 0.33);
-        background: linear-gradient(135deg, rgba(63, 48, 26, 0.38), rgba(20, 31, 42, 0.86));
-      }
-
-      .principle-card {
-        background: rgba(12, 23, 33, 0.82);
-        border-left: 2px solid var(--accent);
-      }
-
-      @media (min-width: 1024px) {
-        .portfolio-grid::before,
-        .function-grid::before {
-          background: linear-gradient(90deg, transparent, var(--line) 8%, var(--line) 92%, transparent);
-          content: "";
-          height: 1px;
-          left: 6%;
-          position: absolute;
-          right: 6%;
-          top: -1.5rem;
-        }
-
-        .venture-card::before,
-        .function-card::before {
-          background: var(--line);
-          content: "";
-          height: 1.5rem;
-          left: 50%;
-          position: absolute;
-          top: -1.5rem;
-          width: 1px;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .desktop-nav {
-          display: none;
-        }
-
-        .parent-node::after,
-        .founder-node::after {
-          height: 1.5rem;
-          bottom: -1.5rem;
-        }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        .motion-ready .reveal { opacity: 1; transform: none; }
       }
     </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TrailBlazer Empire",
+        "url": "https://www.trailblazerempire.com/",
+        "foundingDate": "2022",
+        "description": "A founder-led strategic intelligence group with five specialized ventures."
+      }
+    </script>
   </head>
-
   <body>
-    <header class="site-header sticky top-0 z-50 border-b border-[#253d52]">
-      <div class="mx-auto flex max-w-[1240px] items-center justify-between px-5 py-4 md:px-8">
-        <a href="index.html" class="flex items-center gap-3 text-white" aria-label="TrailBlazer Empire home">
-          <span class="flex size-9 items-center justify-center rounded-lg border border-[#3d6687] bg-[#172b3c]">
-            <svg viewBox="0 0 48 48" fill="none" class="size-5" aria-hidden="true">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
-            </svg>
-          </span>
-          <span>
-            <span class="block text-sm font-extrabold tracking-[0.02em] md:text-base">TrailBlazer Empire</span>
-            <span class="block text-[10px] font-medium uppercase tracking-[0.16em] text-[#8ba8c0]">Group Structure</span>
-          </span>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html" aria-label="TrailBlazer Empire home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>TrailBlazer Empire<span class="brand-subtitle">Group Structure</span></span>
         </a>
-
-        <nav class="desktop-nav flex items-center gap-8" aria-label="Primary navigation">
-          <a class="text-sm font-medium text-[#aac0d3] transition hover:text-white" href="index.html">Home</a>
-          <a class="text-sm font-semibold text-white" href="OrgChart.html" aria-current="page">Organization</a>
-          <a class="text-sm font-medium text-[#aac0d3] transition hover:text-white" href="AboutUs.html">About Us</a>
-          <a class="text-sm font-medium text-[#aac0d3] transition hover:text-white" href="ContactUs.html">Contact Us</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="OrgChart.html" aria-current="page">Organization</a>
+          <a href="AboutUs.html">About Us</a>
+          <a href="ContactUs.html">Contact</a>
         </nav>
       </div>
     </header>
 
-    <main class="mx-auto max-w-[1240px] px-5 py-12 md:px-8 md:py-16">
-      <section class="max-w-4xl">
-        <p class="eyebrow">Organization &amp; Accountability</p>
-        <h1 class="mt-4 text-4xl font-extrabold leading-tight tracking-[-0.035em] text-white md:text-6xl">
-          One group. Five ventures.<br />One accountable operating model.
-        </h1>
-        <p class="mt-6 max-w-3xl text-base leading-7 text-[#9db3c7] md:text-lg">
-          TrailBlazer Empire is structured as a parent company with a focused venture portfolio. Today, execution is founder-led through a disciplined solo stack. As capital is raised, five functional pillars become the first accountable leadership hires.
-        </p>
-      </section>
-
-      <section class="section-shell mt-12 rounded-3xl p-5 md:p-9" aria-labelledby="group-structure-title">
-        <div class="flex flex-col justify-between gap-5 border-b border-[#29445b] pb-7 md:flex-row md:items-end">
-          <div>
-            <span class="hierarchy-label inline-flex rounded-full px-3 py-1 text-xs font-semibold">Structure 01</span>
-            <h2 id="group-structure-title" class="mt-4 text-2xl font-bold tracking-[-0.02em] text-white md:text-3xl">Group structure &amp; venture portfolio</h2>
-            <p class="mt-2 max-w-2xl text-sm leading-6 text-[#91a9bd]">The parent company provides strategic direction, capital stewardship, governance, and shared enablement across each venture.</p>
+    <main>
+      <section class="hero">
+        <div class="wrap reveal">
+          <p class="eyebrow">Organization &amp; accountability</p>
+          <h1>Designed for accountable growth.</h1>
+          <p class="hero-copy">TrailBlazer Empire has two structures that serve different purposes: a parent organization guiding five specialized ventures, and a founder-led operating model designed to convert capital into clear functional accountability.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#group-architecture"><span aria-hidden="true">◎</span>Explore the portfolio</a>
+            <a class="button" href="#operating-model"><span aria-hidden="true">↘</span>See the operating model</a>
           </div>
-          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[#6f8ba3]">Parent → Portfolio</p>
-        </div>
-
-        <div class="mt-9">
-          <article class="parent-node mx-auto max-w-xl rounded-2xl p-6 text-center">
-            <p class="eyebrow">Level 1 · Group Stewardship</p>
-            <h3 class="mt-2 text-2xl font-extrabold text-white">TrailBlazer Empire</h3>
-            <p class="mt-2 text-sm leading-6 text-[#b0c5d7]">Parent company · Group strategy · Capital allocation · Governance · Shared enablement</p>
-          </article>
-
-          <div class="portfolio-grid mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-            <article class="venture-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-3">
-                <span class="venture-index rounded-lg">01</span>
-                <span class="text-[10px] font-bold uppercase tracking-[0.13em] text-[#6e91ad]">Venture</span>
-              </div>
-              <h3 class="mt-5 text-lg font-bold text-white">Vision Craft</h3>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#7fb5dc]">Strategy &amp; Transformation</p>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">Strategic consulting, business development, and organizational transformation.</p>
-            </article>
-
-            <article class="venture-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-3">
-                <span class="venture-index rounded-lg">02</span>
-                <span class="text-[10px] font-bold uppercase tracking-[0.13em] text-[#6e91ad]">Venture</span>
-              </div>
-              <h3 class="mt-5 text-lg font-bold text-white">Capital Compass</h3>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#7fb5dc]">Finance &amp; Institutional Insight</p>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">Financial intelligence, wealth planning, investment insight, and corporate finance.</p>
-            </article>
-
-            <article class="venture-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-3">
-                <span class="venture-index rounded-lg">03</span>
-                <span class="text-[10px] font-bold uppercase tracking-[0.13em] text-[#6e91ad]">Venture</span>
-              </div>
-              <h3 class="mt-5 text-lg font-bold text-white">Vector Bound</h3>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#7fb5dc]">Strategic Intelligence</p>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">High-signal knowledge across business strategy, finance, technology, and markets.</p>
-            </article>
-
-            <article class="venture-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-3">
-                <span class="venture-index rounded-lg">04</span>
-                <span class="text-[10px] font-bold uppercase tracking-[0.13em] text-[#6e91ad]">Venture</span>
-              </div>
-              <h3 class="mt-5 text-lg font-bold text-white">TrailBite</h3>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#7fb5dc]">Food &amp; Travel Intelligence</p>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">Clear Penang recommendations on where to eat, what to order, and what is worthwhile.</p>
-            </article>
-
-            <article class="venture-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-3">
-                <span class="venture-index rounded-lg">05</span>
-                <span class="status-chip rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em]">Building</span>
-              </div>
-              <h3 class="mt-5 text-lg font-bold text-white">Nexora</h3>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#7fb5dc]">AI &amp; Business Systems</p>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">AI strategy, automation, software, data, and workflows as an enabling business layer.</p>
-            </article>
+          <div class="hero-facts" aria-label="Organization facts">
+            <div class="hero-fact"><strong>One group parent</strong><span>Direction, capital stewardship and governance</span></div>
+            <div class="hero-fact"><strong>Five ventures</strong><span>Distinct mandates within one strategic ecosystem</span></div>
+            <div class="hero-fact"><strong>Five future functions</strong><span>First accountable leadership hires enabled by capital</span></div>
           </div>
         </div>
       </section>
 
-      <section class="section-shell mt-8 rounded-3xl p-5 md:p-9" aria-labelledby="operating-model-title">
-        <div class="flex flex-col justify-between gap-5 border-b border-[#29445b] pb-7 md:flex-row md:items-end">
-          <div>
-            <span class="hierarchy-label inline-flex rounded-full px-3 py-1 text-xs font-semibold">Structure 02</span>
-            <h2 id="operating-model-title" class="mt-4 text-2xl font-bold tracking-[-0.02em] text-white md:text-3xl">Current operating model &amp; hiring architecture</h2>
-            <p class="mt-2 max-w-3xl text-sm leading-6 text-[#91a9bd]">The five pillars are founder-owned today. They define the first functional leadership roles to be funded as capital and operating scale increase.</p>
-          </div>
-          <span class="status-chip self-start rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em] md:self-auto">Solo-operated today</span>
+      <nav class="structure-nav" aria-label="Organization page sections">
+        <div class="wrap structure-nav-inner">
+          <a class="structure-link is-active" href="#group-architecture">01 Parent &amp; ventures</a>
+          <a class="structure-link" href="#operating-model">02 Operating model</a>
+          <a class="structure-link" href="#accountability">03 Growth path</a>
         </div>
+      </nav>
 
-        <div class="mt-9">
-          <article class="founder-node mx-auto max-w-2xl rounded-2xl p-6 text-center">
-            <p class="eyebrow">Level 3 · Executive Stewardship</p>
-            <h3 class="mt-2 text-2xl font-extrabold text-white">Founder &amp; Group Principal</h3>
-            <p class="mt-2 text-sm leading-6 text-[#b0c5d7]">Portfolio direction · Capital formation · Strategic partnerships · Meaningful stakeholder engagement</p>
-          </article>
+      <section class="chapter" id="group-architecture" data-index="01">
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <span class="section-tag">Group architecture</span>
+            <p class="eyebrow" style="margin-top:1.2rem">Parent → Portfolio</p>
+            <h2>One strategic centre. Five distinct venture mandates.</h2>
+            <p>The parent organization sets direction and safeguards group coherence. Each venture then operates through a focused market lens without losing connection to the wider ecosystem.</p>
+          </div>
 
-          <div class="focus-card mx-auto mt-16 max-w-4xl rounded-2xl p-5 md:p-6">
-            <div class="grid gap-4 md:grid-cols-[auto_1fr] md:items-center">
-              <div class="flex size-12 items-center justify-center rounded-xl border border-[#8d713e] bg-[#3d301d] text-[#efd19a]">
-                <svg viewBox="0 0 24 24" fill="none" class="size-6" aria-hidden="true">
-                  <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3ZM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5Z" fill="currentColor" />
-                </svg>
+          <div class="structure-shell reveal">
+            <article class="parent-node">
+              <p class="node-level">Level 1 · Group stewardship</p>
+              <h3>TrailBlazer Empire</h3>
+              <p>Parent organization connecting organizational direction, institutional capital and market opportunity.</p>
+              <div class="parent-capabilities" aria-label="Parent organization responsibilities">
+                <span>Group direction</span><span>Capital stewardship</span><span>Governance</span><span>Shared enablement</span>
               </div>
-              <div>
-                <p class="text-sm font-bold text-[#efd19a]">Founder focus: meaningful engagement</p>
-                <p class="mt-1 text-sm leading-6 text-[#b9c6d1]">Protect founder time for customers, partners, investors, collaborators, and the relationships that create trust and opportunity. Repeatable execution and specialist accountability sit within the five functional pillars below.</p>
+            </article>
+
+            <div class="portfolio-stage">
+              <div class="portfolio-grid" role="group" aria-label="TrailBlazer Empire ventures">
+                <button class="venture-card venture-vision" type="button" aria-pressed="true" data-name="Vision Craft" data-description="Strategic diagnosis, organizational framing and operating alignment for leaders managing complexity and cross-functional disconnects." data-url="https://visioncraft.trailblazerempire.com/">
+                  <span class="card-top"><span class="venture-number">01</span><span class="status-chip">Active</span></span>
+                  <span class="card-kicker">Strategy &amp; transformation</span><h3>Vision Craft</h3>
+                  <p>Creates clarity, shared language, ownership and an executable organizational direction.</p>
+                </button>
+                <button class="venture-card venture-capital" type="button" aria-pressed="false" data-name="Capital Compass" data-description="Institutional capital and ecosystem intelligence connecting fiscal priorities, monetary conditions, sector dynamics, market demand and capital flows." data-url="https://capitalcompass.trailblazerempire.com/">
+                  <span class="card-top"><span class="venture-number">02</span><span class="status-chip">Active</span></span>
+                  <span class="card-kicker">Capital &amp; institutions</span><h3>Capital Compass</h3>
+                  <p>Interprets how policy, capital conditions and sector priorities influence strategic value creation.</p>
+                </button>
+                <button class="venture-card venture-vector" type="button" aria-pressed="false" data-name="Vector Bound" data-description="Expertise-led market intelligence examining industry structure, value-chain dynamics, competitive positions and commercial attractiveness." data-url="https://vectorbound.trailblazerempire.com/">
+                  <span class="card-top"><span class="venture-number">03</span><span class="status-chip">Active</span></span>
+                  <span class="card-kicker">Industry intelligence</span><h3>Vector Bound</h3>
+                  <p>Maps where value is created, how industries are changing and whether an opportunity is attractive.</p>
+                </button>
+                <button class="venture-card venture-trailbite" type="button" aria-pressed="false" data-name="TrailBite" data-description="A Penang food and travel guide offering clear recommendations on where to eat, what to order and whether an experience is worth the time and money." data-url="https://trailbite.trailblazerempire.com/">
+                  <span class="card-top"><span class="venture-number">04</span><span class="status-chip">Active</span></span>
+                  <span class="card-kicker">Food &amp; travel discovery</span><h3>TrailBite</h3>
+                  <p>Turns local experience into practical recommendations grounded in value, quality and context.</p>
+                </button>
+                <button class="venture-card venture-nexora" type="button" aria-pressed="false" data-name="Nexora" data-description="AI, automation and digital enablement connecting strategy, software, data, systems and workflows into a scalable business layer." data-url="">
+                  <span class="card-top"><span class="venture-number">05</span><span class="status-chip">Website in development</span></span>
+                  <span class="card-kicker">AI &amp; digital enablement</span><h3>Nexora</h3>
+                  <p>Builds the enabling layer between strategic intent, technology, data and repeatable execution.</p>
+                </button>
+              </div>
+
+              <aside class="venture-detail" aria-live="polite">
+                <span class="venture-detail-label">Selected venture</span>
+                <div><h3 id="venture-detail-name">Vision Craft</h3><p id="venture-detail-copy">Strategic diagnosis, organizational framing and operating alignment for leaders managing complexity and cross-functional disconnects.</p></div>
+                <a id="venture-detail-link" href="https://visioncraft.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">Visit venture ↗</a>
+              </aside>
+              <p class="legal-note">Capital Compass provides research and strategic intelligence and is not licensed to provide investment advice. Its content does not constitute financial or investment advice.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter chapter-alt" id="operating-model" data-index="02">
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <span class="section-tag">Operating architecture</span>
+            <p class="eyebrow" style="margin-top:1.2rem">Founder → Functional accountability</p>
+            <h2>The real organization today—and the leadership architecture being built.</h2>
+            <p>The founder currently owns all five functional pillars through a disciplined solo stack. Capital does not simply add headcount; it converts each responsibility into a defined leadership mandate with measurable outcomes.</p>
+          </div>
+
+          <div class="structure-shell reveal">
+            <article class="founder-node">
+              <p class="node-level">Executive stewardship</p>
+              <h3>Founder &amp; Group Principal</h3>
+              <p>Portfolio direction · Capital formation · Strategic partnerships · Meaningful stakeholder engagement</p>
+            </article>
+
+            <div class="founder-focus">
+              <span class="focus-symbol" aria-hidden="true">◎</span>
+              <div><strong>Protected founder focus: meaningful engagement</strong><p>Founder time remains concentrated on customers, partners, investors, collaborators and the relationships that create trust and opportunity. Repeatable execution becomes accountable within the functions below.</p></div>
+            </div>
+
+            <div class="function-stage">
+              <div class="function-grid" aria-label="Future functional leadership roles">
+                <article class="function-card">
+                  <span class="card-top"><span class="function-number">01</span><span class="hire-label">Capital-enabled hire</span></span>
+                  <span class="card-kicker">Build &amp; reliability</span><h3>Technology &amp; Digital Infrastructure</h3>
+                  <p>Platforms, web and application delivery, hosting, security, AI tooling and technical reliability.</p>
+                </article>
+                <article class="function-card">
+                  <span class="card-top"><span class="function-number">02</span><span class="hire-label">Capital-enabled hire</span></span>
+                  <span class="card-kicker">Narrative &amp; relationships</span><h3>Brand, Communications &amp; Community</h3>
+                  <p>Narrative, content, channels, partnerships, community and stakeholder communications.</p>
+                </article>
+                <article class="function-card">
+                  <span class="card-top"><span class="function-number">03</span><span class="hire-label">Capital-enabled hire</span></span>
+                  <span class="card-kicker">Discipline &amp; readiness</span><h3>Finance, Tax &amp; Capital Stewardship</h3>
+                  <p>Accounting, tax structure, budgeting, cash discipline, capital planning and investor readiness.</p>
+                </article>
+                <article class="function-card">
+                  <span class="card-top"><span class="function-number">04</span><span class="hire-label">Capital-enabled hire</span></span>
+                  <span class="card-kicker">Economics &amp; outcomes</span><h3>Portfolio Ownership &amp; Performance</h3>
+                  <p>Venture economics, resource allocation, P&amp;L, KPIs, risk and outcome accountability.</p>
+                </article>
+                <article class="function-card">
+                  <span class="card-top"><span class="function-number">05</span><span class="hire-label">Capital-enabled hire</span></span>
+                  <span class="card-kicker">Protection &amp; compliance</span><h3>Corporate Secretarial, Legal &amp; Governance</h3>
+                  <p>Statutory records, filings, contracts, compliance, board governance and legal coordination.</p>
+                </article>
               </div>
             </div>
           </div>
-
-          <div class="function-grid mt-10 grid gap-4 md:grid-cols-2 lg:mt-16 lg:grid-cols-5">
-            <article class="function-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-2">
-                <span class="function-index rounded-lg">01</span>
-                <span class="text-[9px] font-bold uppercase tracking-[0.1em] text-[#d4ae69]">Capital-enabled hire</span>
-              </div>
-              <h3 class="mt-5 text-base font-bold text-white">Technology &amp; Digital Infrastructure</h3>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">Platforms, web and app delivery, hosting, security, AI tooling, and technical reliability.</p>
-            </article>
-
-            <article class="function-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-2">
-                <span class="function-index rounded-lg">02</span>
-                <span class="text-[9px] font-bold uppercase tracking-[0.1em] text-[#d4ae69]">Capital-enabled hire</span>
-              </div>
-              <h3 class="mt-5 text-base font-bold text-white">Brand, Communications &amp; Community</h3>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">Narrative, content, channels, partnerships, community, and stakeholder communications.</p>
-            </article>
-
-            <article class="function-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-2">
-                <span class="function-index rounded-lg">03</span>
-                <span class="text-[9px] font-bold uppercase tracking-[0.1em] text-[#d4ae69]">Capital-enabled hire</span>
-              </div>
-              <h3 class="mt-5 text-base font-bold text-white">Finance, Tax &amp; Capital Stewardship</h3>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">Accounting, tax structure, budgeting, cash discipline, capital planning, and investor readiness.</p>
-            </article>
-
-            <article class="function-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-2">
-                <span class="function-index rounded-lg">04</span>
-                <span class="text-[9px] font-bold uppercase tracking-[0.1em] text-[#d4ae69]">Capital-enabled hire</span>
-              </div>
-              <h3 class="mt-5 text-base font-bold text-white">Portfolio Ownership &amp; Performance</h3>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">Venture economics, resource allocation, P&amp;L, KPIs, risk, and outcome accountability.</p>
-            </article>
-
-            <article class="function-card rounded-2xl p-5">
-              <div class="flex items-center justify-between gap-2">
-                <span class="function-index rounded-lg">05</span>
-                <span class="text-[9px] font-bold uppercase tracking-[0.1em] text-[#d4ae69]">Capital-enabled hire</span>
-              </div>
-              <h3 class="mt-5 text-base font-bold text-white">Corporate Secretarial, Legal &amp; Governance</h3>
-              <p class="mt-3 text-sm leading-6 text-[#91a9bd]">Statutory records, filings, contracts, compliance, board governance, and legal coordination.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="mt-8 grid gap-3 md:grid-cols-3">
-          <article class="principle-card rounded-xl p-5">
-            <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#78b7e4]">Now</p>
-            <p class="mt-2 text-sm leading-6 text-[#a7bacb]">The founder remains accountable across all five pillars through a disciplined solo stack.</p>
-          </article>
-          <article class="principle-card rounded-xl p-5">
-            <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#78b7e4]">Capital milestone</p>
-            <p class="mt-2 text-sm leading-6 text-[#a7bacb]">Funding converts each pillar into an explicit functional leadership mandate.</p>
-          </article>
-          <article class="principle-card rounded-xl p-5">
-            <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#78b7e4]">Future accountability</p>
-            <p class="mt-2 text-sm leading-6 text-[#a7bacb]">Each lead owns defined outcomes while the founder protects strategic and human engagement.</p>
-          </article>
         </div>
       </section>
 
-      <footer class="mt-10 border-t border-[#22394d] py-8 text-center text-sm text-[#6f899f]">
-        TrailBlazer Empire © 2026 · Organization designed for accountable growth.
-      </footer>
+      <section class="chapter" id="accountability" data-index="03">
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <span class="section-tag">Accountability path</span>
+            <p class="eyebrow" style="margin-top:1.2rem">From solo stack to leadership system</p>
+            <h2>Capital creates mandates—not layers for their own sake.</h2>
+            <p>The operating model is deliberately staged so every hire inherits a clear reason to exist, an explicit decision boundary and accountability for outcomes.</p>
+          </div>
+          <div class="growth-path reveal">
+            <article class="growth-step"><strong>Now · Founder-owned</strong><p>The founder remains accountable across all five pillars while building the ventures and group relationships.</p></article>
+            <article class="growth-step"><strong>Capital milestone · Mandates funded</strong><p>Funding converts each pillar into an explicit functional leadership role with defined priorities and resources.</p></article>
+            <article class="growth-step"><strong>Future · Distributed accountability</strong><p>Each leader owns measurable outcomes while the founder protects group direction and meaningful engagement.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap cta reveal">
+          <div class="cta-inner">
+            <div><p class="eyebrow">Build with the group</p><h2>Start with the strategic priority.</h2><p>Tell us what is changing, what outcome matters and where the constraint sits. We will identify the appropriate venture, capability or collaboration model.</p></div>
+            <a class="button" href="ContactUs.html"><span aria-hidden="true">↗</span>Start a Conversation</a>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer><div class="wrap footer-inner"><span>© 2026 TrailBlazer Empire</span><span>Designed for accountable growth.</span></div></footer>
+
+    <script>
+      (() => {
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const progress = document.querySelector(".scroll-progress");
+        const navLinks = [...document.querySelectorAll(".structure-link")];
+        const sections = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+        const detailName = document.querySelector("#venture-detail-name");
+        const detailCopy = document.querySelector("#venture-detail-copy");
+        const detailLink = document.querySelector("#venture-detail-link");
+
+        document.querySelectorAll(".venture-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            document.querySelectorAll(".venture-card").forEach((item) => item.setAttribute("aria-pressed", String(item === card)));
+            detailName.textContent = card.dataset.name;
+            detailCopy.textContent = card.dataset.description;
+            if (card.dataset.url) {
+              detailLink.href = card.dataset.url;
+              detailLink.hidden = false;
+            } else {
+              detailLink.hidden = true;
+            }
+          });
+        });
+
+        if (!reducedMotion && "IntersectionObserver" in window) {
+          document.documentElement.classList.add("motion-ready");
+          const observer = new IntersectionObserver((entries, activeObserver) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                activeObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12 });
+          document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+        }
+
+        const updatePageState = () => {
+          const available = document.documentElement.scrollHeight - window.innerHeight;
+          progress.style.width = `${available > 0 ? Math.min(100, Math.max(0, window.scrollY / available * 100)) : 0}%`;
+          const marker = window.innerHeight * 0.34;
+          let active = sections[0];
+          sections.forEach((section) => { if (section.getBoundingClientRect().top <= marker) active = section; });
+          navLinks.forEach((link) => {
+            const selected = link.getAttribute("href") === `#${active.id}`;
+            link.classList.toggle("is-active", selected);
+            if (selected) link.setAttribute("aria-current", "location"); else link.removeAttribute("aria-current");
+          });
+        };
+
+        let ticking = false;
+        window.addEventListener("scroll", () => {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(() => { updatePageState(); ticking = false; });
+        }, { passive: true });
+        updatePageState();
+      })();
+    </script>
   </body>
 </html>
+

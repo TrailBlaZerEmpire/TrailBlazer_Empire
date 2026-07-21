@@ -1,388 +1,323 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TrailBlazer Empire | Strategy, Capital, Markets &amp; Technology</title>
+    <meta name="description" content="TrailBlazer Empire is a founder-led strategic intelligence group connecting organizational direction, institutional capital, market opportunity and digital enablement through five ventures." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.trailblazerempire.com/" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TrailBlazer Empire" />
+    <meta property="og:title" content="TrailBlazer Empire" />
+    <meta property="og:description" content="One strategic ecosystem connecting direction, capital, markets and technology." />
+    <meta property="og:url" content="https://www.trailblazerempire.com/" />
+    <meta property="og:image" content="https://www.trailblazerempire.com/preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        --canvas: #f7f4ec;
+        --surface: #ffffff;
+        --surface-soft: #f1ede3;
+        --ink: #17211c;
+        --muted: #5f6b63;
+        --green: #1f6b52;
+        --green-deep: #174d3c;
+        --gold: #d39a3c;
+        --terracotta: #a85c43;
+        --stone: #ded8cc;
+        --stone-strong: #c9c1b4;
+        --radius-sm: 0.8rem;
+        --radius-md: 1.25rem;
+        --radius-lg: 2rem;
+        --max: 1320px;
+        --shadow: 0 26px 70px rgba(71, 63, 48, 0.11);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 89% 2%, rgba(211,154,60,.14), transparent 31rem),
+          radial-gradient(circle at 3% 31%, rgba(31,107,82,.08), transparent 28rem),
+          var(--canvas);
+        color: var(--ink);
+        font-family: "Work Sans", Arial, sans-serif;
+        line-height: 1.6;
+      }
+      a { color: inherit; }
+      img { display: block; max-width: 100%; }
+      button, a { font: inherit; }
+      .wrap { width: min(calc(100% - 2.5rem), var(--max)); margin-inline: auto; }
+      .scroll-progress { position: fixed; inset: 0 auto auto 0; z-index: 100; width: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--green)); }
 
-     <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0WPK90FME5"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-0WPK90FME5');
-        </script>
+      .site-header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid rgba(222,216,204,.92); background: rgba(247,244,236,.9); backdrop-filter: blur(18px); }
+      .header-inner { min-height: 4.6rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+      .brand { display: inline-flex; align-items: center; gap: .75rem; color: var(--ink); font-weight: 800; letter-spacing: -.02em; text-decoration: none; }
+      .brand-mark { width: 2.3rem; height: 2.3rem; display: grid; place-items: center; border: 1px solid var(--stone-strong); border-radius: .7rem; background: white; color: var(--green); transition: transform 300ms ease, border-color 300ms ease; }
+      .brand-mark::before { content: "◆"; font-size: .84rem; }
+      .brand:hover .brand-mark { transform: rotate(45deg); border-color: var(--gold); }
+      .brand-subtitle { display: block; color: #7a837c; font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+      .primary-nav { display: flex; align-items: center; gap: 1.75rem; }
+      .primary-nav a { color: #657168; font-size: .86rem; font-weight: 650; text-decoration: none; }
+      .primary-nav a:hover, .primary-nav a[aria-current="page"] { color: var(--ink); }
 
-    <title>TrailBlazer Empire</title>
-   <!--  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," /> -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico" /> 
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+      .eyebrow { margin: 0; color: var(--green); font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+      h1, h2, h3, p { margin-top: 0; }
+      .hero { position: relative; isolation: isolate; padding: clamp(5.5rem, 10vw, 9rem) 0 5rem; }
+      .hero::before, .hero::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
+      .hero::before { width: 36rem; height: 36rem; top: -19rem; right: -9rem; border: 1px solid rgba(31,107,82,.13); }
+      .hero::after { width: 20rem; height: 20rem; top: -7rem; right: -1rem; border: 1px solid rgba(211,154,60,.22); }
+      .hero-grid { display: grid; grid-template-columns: minmax(0,1.18fr) minmax(25rem,.82fr); gap: clamp(3rem,7vw,7rem); align-items: center; }
+      h1 { max-width: 12ch; margin: 1rem 0 1.4rem; font-size: clamp(3.5rem,7.5vw,7.2rem); line-height: .92; letter-spacing: -.062em; }
+      .hero-copy { max-width: 50rem; color: #536159; font-size: clamp(1.08rem,1.7vw,1.3rem); line-height: 1.75; }
+      .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+      .button { min-height: 3rem; display: inline-flex; align-items: center; gap: .55rem; justify-content: center; padding: .75rem 1.15rem; border: 1px solid var(--stone-strong); border-radius: .8rem; background: white; color: #26372e; font-size: .85rem; font-weight: 750; text-decoration: none; transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease; }
+      .button:hover { transform: translateY(-2px); border-color: var(--green); box-shadow: 0 12px 26px rgba(71,63,48,.09); }
+      .button-primary { border-color: transparent; background: linear-gradient(135deg,var(--green-deep),#2d8066); color: white; box-shadow: 0 14px 30px rgba(31,107,82,.2); }
 
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Work+Sans:wght@400;500;700;900"
-    />    
-    
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <meta property="og:title" content="TrailBlazer Empire">
-    <meta property="og:description" content="Connecting businesses across finance, technology and strategic consulting.">
-    <meta property="og:image" content="https://trailblazerempire.github.io/TrailBlazer_Empire/preview.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://www.trailblazerempire.com">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="TrailBlazer Empire">  
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="description" content="TrailBlazer Empire connects businesses across finance, technology and strategic consulting to drive innovation and growth.">
-    <link rel="canonical" href="https://www.trailblazerempire.com">
-    <meta name="viewport" content="width=1024">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <meta name="robots" content="index, follow">
+      .ecosystem { position: relative; min-height: 34rem; display: grid; place-items: center; }
+      .ecosystem::before, .ecosystem::after { content: ""; position: absolute; border: 1px solid var(--stone); border-radius: 50%; pointer-events: none; }
+      .ecosystem::before { width: 27rem; height: 27rem; }
+      .ecosystem::after { width: 18rem; height: 18rem; border-color: rgba(31,107,82,.2); }
+      .ecosystem-core { position: relative; z-index: 2; width: 12rem; height: 12rem; display: grid; place-items: center; padding: 1.4rem; border: 1px solid rgba(31,107,82,.3); border-radius: 50%; background: linear-gradient(135deg,var(--green-deep),var(--green)); color: white; text-align: center; box-shadow: 0 25px 60px rgba(31,107,82,.22); }
+      .ecosystem-core strong { font-size: 1.05rem; line-height: 1.2; }
+      .ecosystem-core span { display: block; margin-top: .4rem; color: #d8e8e0; font-size: .67rem; }
+      .orbit-link { position: absolute; z-index: 3; width: 7.6rem; min-height: 4.6rem; display: grid; place-items: center; padding: .7rem; border: 1px solid var(--stone); border-radius: 1rem; background: rgba(255,255,255,.94); color: var(--ink); font-size: .72rem; font-weight: 800; line-height: 1.25; text-align: center; text-decoration: none; box-shadow: 0 12px 28px rgba(71,63,48,.08); transition: transform 220ms ease, border-color 220ms ease; }
+      .orbit-link:hover { transform: translateY(-4px) scale(1.03); border-color: var(--orbit-accent,var(--green)); }
+      .orbit-link span { display: block; color: var(--orbit-accent,var(--green)); font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
+      .orbit-1 { --orbit-accent:#b98535; top: 0; left: 50%; transform: translateX(-50%); }
+      .orbit-1:hover { transform: translateX(-50%) translateY(-4px) scale(1.03); }
+      .orbit-2 { --orbit-accent:#1f6b52; top: 7.5rem; right: 0; }
+      .orbit-3 { --orbit-accent:#9b4965; bottom: 2rem; right: 3rem; }
+      .orbit-4 { --orbit-accent:#d46d37; bottom: 2rem; left: 3rem; }
+      .orbit-5 { --orbit-accent:#6654a3; top: 7.5rem; left: 0; }
+
+      .fact-strip { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1px; margin-top: 3.5rem; overflow: hidden; border: 1px solid var(--stone); border-radius: var(--radius-md); background: var(--stone); box-shadow: 0 14px 36px rgba(71,63,48,.06); }
+      .fact { padding: 1.3rem 1.5rem; background: rgba(255,255,255,.9); }
+      .fact strong { display: block; font-size: 1.05rem; }
+      .fact span { color: #6d786f; font-size: .79rem; }
+
+      section.content { position: relative; padding: clamp(6rem,9vw,9rem) 0; }
+      .section-alt { background: linear-gradient(180deg,rgba(235,229,217,.62),rgba(247,244,236,.16)); }
+      .section-heading { max-width: 64rem; margin-bottom: 3.5rem; }
+      .section-heading h2 { max-width: 18ch; margin: .65rem 0 1rem; font-size: clamp(2.7rem,5.2vw,4.9rem); line-height: 1.02; letter-spacing: -.05em; }
+      .section-heading p { max-width: 51rem; color: var(--muted); font-size: 1rem; }
+
+      .connect-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1rem; }
+      .connect-card { min-height: 16rem; padding: 1.4rem; border: 1px solid var(--stone); border-radius: var(--radius-md); background: rgba(255,255,255,.78); transition: transform 240ms ease, border-color 240ms ease, background 240ms ease; }
+      .connect-card:hover { transform: translateY(-5px); border-color: rgba(31,107,82,.4); background: white; }
+      .connect-number { color: var(--green); font-size: .67rem; font-weight: 800; letter-spacing: .12em; }
+      .connect-card h3 { margin: 2.5rem 0 .65rem; font-size: 1.2rem; }
+      .connect-card p { color: #617068; font-size: .84rem; }
+
+      .portfolio-grid { display: grid; grid-template-columns: repeat(12,minmax(0,1fr)); gap: 1rem; }
+      .venture { --accent:var(--green); position: relative; min-height: 31rem; grid-column: span 4; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--stone); border-radius: var(--radius-lg); background: white; box-shadow: 0 14px 38px rgba(71,63,48,.07); transition: transform 260ms ease, box-shadow 260ms ease; }
+      .venture:nth-child(1), .venture:nth-child(2) { grid-column: span 6; }
+      .venture:hover { transform: translateY(-6px); box-shadow: 0 28px 58px rgba(71,63,48,.13); }
+      .venture-media { aspect-ratio: 16/9; overflow: hidden; background: var(--surface-soft); }
+      .venture-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 650ms cubic-bezier(.2,.75,.25,1); }
+      .venture:hover .venture-media img { transform: scale(1.045); }
+      .venture-body { flex: 1; display: flex; flex-direction: column; padding: 1.45rem; }
+      .venture-top { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+      .venture-kicker { color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+      .status { flex: none; padding: .3rem .5rem; border: 1px solid color-mix(in srgb,var(--accent) 28%,var(--stone)); border-radius: 999px; background: color-mix(in srgb,var(--accent) 7%,white); color: var(--accent); font-size: .57rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+      .venture h3 { margin: .45rem 0 .7rem; font-size: clamp(1.45rem,2.5vw,2rem); letter-spacing: -.035em; }
+      .venture p { color: #5f6d64; font-size: .88rem; }
+      .venture-link { display: inline-flex; align-items: center; gap: .45rem; margin-top: auto; color: var(--accent); font-size: .8rem; font-weight: 800; text-decoration: none; }
+      .venture-link:hover { text-decoration: underline; }
+      .venture-vision { --accent:#9c6d21; }
+      .venture-capital { --accent:#1f6b52; }
+      .venture-vector { --accent:#9b4965; }
+      .venture-trailbite { --accent:#c95f2d; }
+      .venture-nexora { --accent:#6654a3; }
+      .nexora-capabilities { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+      .nexora-capabilities span { padding: .35rem .5rem; border: 1px solid var(--stone); border-radius: 999px; background: var(--surface-soft); color: #615b72; font-size: .64rem; }
+      .disclaimer { margin-top: .9rem; padding: .85rem; border-left: 2px solid var(--gold); background: #fbf4e8; color: #76654c; font-size: .69rem; }
+
+      .thesis-shell { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: clamp(3rem,7vw,7rem); align-items: center; }
+      .thesis-quote { padding: 2rem 2rem 2rem 2.4rem; border: 1px solid rgba(211,154,60,.36); border-left: 4px solid var(--gold); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; background: linear-gradient(135deg,rgba(252,244,229,.96),rgba(255,255,255,.9)); color: #27372f; font-size: clamp(1.4rem,2.8vw,2.2rem); font-weight: 650; line-height: 1.4; letter-spacing: -.025em; box-shadow: var(--shadow); }
+      .thesis-copy h2 { margin: .65rem 0 1rem; font-size: clamp(2.5rem,5vw,4.6rem); line-height: 1; letter-spacing: -.05em; }
+      .thesis-copy > p { color: var(--muted); }
+      .method-row { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1px; margin-top: 1.5rem; overflow: hidden; border: 1px solid var(--stone); border-radius: var(--radius-md); background: var(--stone); }
+      .method-step { padding: 1.2rem; background: rgba(255,255,255,.86); }
+      .method-step strong { color: var(--green); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; }
+      .method-step p { margin: .4rem 0 0; color: #68746d; font-size: .75rem; }
+
+      .cta { margin-bottom: 4rem; padding: clamp(2rem,5vw,4.5rem); border: 1px solid rgba(31,107,82,.24); border-radius: var(--radius-lg); background: radial-gradient(circle at 84% 18%,rgba(211,154,60,.25),transparent 20rem),linear-gradient(135deg,var(--green-deep),var(--green)); color: white; box-shadow: 0 28px 60px rgba(31,107,82,.2); }
+      .cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+      .cta .eyebrow { color: #efc97f; }
+      .cta h2 { margin: .5rem 0 .75rem; color: white; font-size: clamp(2.4rem,4.8vw,4.4rem); line-height: 1; letter-spacing: -.05em; }
+      .cta p { max-width: 47rem; margin-bottom: 0; color: #dce9e3; }
+      .cta .button { border-color: white; background: white; color: #173329; }
+
+      footer { padding: 2.5rem 0; border-top: 1px solid var(--stone); background: var(--surface-soft); }
+      .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; }
+      .footer-copy { max-width: 38rem; color: #68756d; font-size: .8rem; }
+      .socials { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .5rem; }
+      .socials a { min-width: 2.3rem; height: 2.3rem; display: grid; place-items: center; padding: 0 .55rem; border: 1px solid var(--stone); border-radius: .7rem; background: white; color: #46544b; font-size: .65rem; font-weight: 800; text-decoration: none; transition: transform 200ms ease,border-color 200ms ease; }
+      .socials a:hover { transform: translateY(-2px); border-color: var(--green); }
+
+      .motion-ready .reveal { opacity: 0; transform: translateY(25px); transition: opacity 700ms ease,transform 700ms cubic-bezier(.2,.75,.25,1); }
+      .motion-ready .reveal.is-visible { opacity: 1; transform: none; }
+      :focus-visible { outline: 3px solid rgba(31,107,82,.7); outline-offset: 3px; }
+
+      @media (max-width:1050px) {
+        .hero-grid, .thesis-shell { grid-template-columns: 1fr; }
+        .ecosystem { width: min(100%,34rem); margin-inline: auto; }
+        .connect-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+        .venture, .venture:nth-child(1), .venture:nth-child(2) { grid-column: span 6; }
+        .venture:last-child { grid-column: 1/-1; }
+      }
+      @media (max-width:720px) {
+        .wrap { width: min(calc(100% - 1.5rem),var(--max)); }
+        .header-inner { align-items: flex-start; flex-direction: column; gap: .75rem; padding: .9rem 0; }
+        .primary-nav { width: 100%; gap: 1rem; overflow-x: auto; padding-bottom: .2rem; }
+        .primary-nav a { white-space: nowrap; }
+        .hero { padding-top: 4rem; }
+        .ecosystem { min-height: 28rem; transform: scale(.83); margin-block: -2rem; }
+        .fact-strip,.connect-grid,.method-row { grid-template-columns: 1fr; }
+        .venture,.venture:nth-child(1),.venture:nth-child(2),.venture:last-child { grid-column: 1/-1; min-height: 28rem; }
+        .cta-inner,.footer-grid { grid-template-columns: 1fr; }
+        .socials { justify-content: flex-start; }
+      }
+      @media (prefers-reduced-motion:reduce) {
+        html { scroll-behavior: auto; }
+        *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+        .motion-ready .reveal { opacity:1; transform:none; }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TrailBlazer Empire",
+        "url": "https://www.trailblazerempire.com/",
+        "foundingDate": "2022",
+        "description": "A founder-led strategic intelligence group connecting organizational direction, institutional capital and market opportunity through five specialized ventures."
+      }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0WPK90FME5"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-0WPK90FME5");</script>
   </head>
-
-  <!-- Body block starts -->
-<body>
-  <div class="relative flex size-full min-h-screen flex-col bg-[#14191f] dark group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
-    <div class="layout-container flex h-full grow flex-col">
-
-      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#293542] px-10 py-3">
-        <div class="flex items-center gap-4 text-white">
-          <div class="size-4">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
-            </svg>
-          </div>
-          <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">TrailBlazer Empire</h2>
-        </div>
-
-        <!-- ✅ NAVIGATION LINKS: Updated to be real links -->
-        <nav class="flex items-center gap-9">
-          <a class="text-white text-sm font-medium leading-normal" href="index.html">Home</a>
-          <a class="text-white text-sm font-medium leading-normal" href="OrgChart.html">Org Chart</a>
-          <a class="text-white text-sm font-medium leading-normal" href="AboutUs.html">About Us</a>
-          <a class="text-white text-sm font-medium leading-normal" href="ContactUs.html">Contact Us</a>
-        </nav>
-
-  <!-- Body block starts 
- 
   <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-[#14191f] dark group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
-      <div class="layout-container flex h-full grow flex-col">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html" aria-label="TrailBlazer Empire home"><span class="brand-mark" aria-hidden="true"></span><span>TrailBlazer Empire<span class="brand-subtitle">Strategic Intelligence Group</span></span></a>
+        <nav class="primary-nav" aria-label="Primary navigation"><a href="index.html" aria-current="page">Home</a><a href="OrgChart.html">Organization</a><a href="AboutUs.html">About Us</a><a href="ContactUs.html">Contact</a></nav>
+      </div>
+    </header>
 
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#293542] px-10 py-3">
-          <div class="flex items-center gap-4 text-white">
-            <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
-              </svg>
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div class="reveal">
+              <p class="eyebrow">Founder-led strategic intelligence · Established 2022</p>
+              <h1>One ecosystem. Clearer decisions.</h1>
+              <p class="hero-copy">TrailBlazer Empire connects organizational direction, institutional capital, industry intelligence and digital enablement—helping leaders move from complexity to aligned, scalable execution.</p>
+              <div class="actions"><a class="button button-primary" href="#ventures"><span aria-hidden="true">◎</span>Explore Our Ventures</a><a class="button" href="ContactUs.html"><span aria-hidden="true">↗</span>Discuss a Strategic Priority</a><a class="button" href="https://www.youtube.com/watch?v=YEVJI7rFuWo&amp;list=PLb4Zykm0hOtN0B2B_FNJvJgdiV8ctYbnr&amp;index=1" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span>Watch Our Thinking</a></div>
             </div>
-            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">TrailBlazer Empire</h2>
+            <aside class="ecosystem reveal" aria-label="TrailBlazer Empire venture ecosystem">
+              <div class="ecosystem-core"><div><strong>TrailBlazer Empire</strong><span>Direction · Capital · Governance · Enablement</span></div></div>
+              <a class="orbit-link orbit-1" href="#vision-craft"><span>Strategy</span>Vision Craft</a>
+              <a class="orbit-link orbit-2" href="#capital-compass"><span>Capital</span>Capital Compass</a>
+              <a class="orbit-link orbit-3" href="#vector-bound"><span>Markets</span>Vector Bound</a>
+              <a class="orbit-link orbit-4" href="#trailbite"><span>Experience</span>TrailBite</a>
+              <a class="orbit-link orbit-5" href="#nexora"><span>Enablement</span>Nexora</a>
+            </aside>
           </div>
-          <div class="flex flex-1 justify-end gap-8">
-            <div class="flex items-center gap-9">
-              <a class="text-white text-sm font-medium leading-normal" href="#">Home</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">Org Chart</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">About Us</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">Contact Us</a>
-            </div>
+          <div class="fact-strip reveal" aria-label="TrailBlazer Empire facts"><div class="fact"><strong>Five ventures</strong><span>Distinct perspectives within one strategic ecosystem</span></div><div class="fact"><strong>Malaysia · Singapore</strong><span>Group contact points for regional engagement</span></div><div class="fact"><strong>Problem first</strong><span>Every conversation begins with priority, urgency and outcome</span></div></div>
+        </div>
+      </section>
 
-        --> 
-            <!-- Login Button 
-            <button
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#d2e2f3] text-[#14191f] text-sm font-bold leading-normal tracking-[0.015em]"
-            >
-              <span class="truncate">Login</span>
-            </button>
-
-        -->
-
-          </div>
-        </header>
-        <div class="px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <!-- First Picture Part --> 
-            <div class="@container">
-              <div class="@[480px]:p-4">
-                <div
-                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
-                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYgjw4FUCGxMvymW_yVRNAdWknHHvQ-j3vFthlzJiFO62t1LrghZKXl2dC3tt0VxjZkmSCdMAUPuO-VwmDqa01cqH8anDpdINe4zf9SY6yExK4VIQtsNRGQYsYa9cUCnRTFjw1geJHxzPWX6DxVPcgxihyQ3x56WynBK7SvTTQCVof42IsO9JXnq7maINptqUVpf4DtUZoTzW67fI86jN8v4ObeAMMiN2xtYBusjEWk5cdd9cxsPKdtZ0pQDc16fs_Wx2rehkJ6RQ");'
-                >
-                  <div class="flex flex-col gap-2 text-center">
-                    <h1
-                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
-                    >
-                      Connecting Businesses Across Industries
-                    </h1>
-                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                      The business provides strategic management and innovation consultancy services across multiple industries, guiding organizations in business growth, technology adoption and market development. 
-                      It also conducts professional and executive training programs focused on entrepreneurship, strategic thinking and organizational transformation. 
-                    </h2>
-                  </div>
-                <!--  <a href="AboutUs.html"> -->
-                  <a href="https://www.youtube.com/watch?v=YEVJI7rFuWo&list=PLb4Zykm0hOtN0B2B_FNJvJgdiV8ctYbnr&index=1">
-                  <button
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#d2e2f3] text-[#14191f] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
-                  >
-                    <span class="truncate">Discover More</span>
-                  </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <!-- Ends the first picture part --> 
-
-            <!-- Start with subsidiaries Info --> 
-            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Our Subsidiaries</h2>
-
-            <!-- Strategic Consulting Subsidiaries --> 
-            <div class="p-4 @container">
-              <div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("assets/vision-craft-lotus.webp");'
-                  role="img"
-                  aria-label="A single lotus flower representing clarity and elegant strategic solutions"
-                ></div>
-                <div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 @xl:px-4">
-                  <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Vision Craft</p>
-                  <div class="flex items-end gap-3 justify-between">
-                    <p class="text-[#9badc0] text-base font-normal leading-normal">
-                      Offering expert strategic consulting services to help businesses optimize their strategies, improve efficiency and achieve sustainable growth.
-                    </p>
-
-                    <!--
-                    <a href="https://trailblazerempire.github.io/VisionCraft/businessconsult.html" target="_blank" rel="noopener noreferrer"> 
-                    <a href="https://visioncraft.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">   -->
-                    <a href="https://visioncraft.trailblazerempire.com" target="_blank" rel="noopener noreferrer">
-                      <button
-                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#d2e2f3] text-[#14191f] text-sm font-medium leading-normal"
-                      >        
-                        <span class="truncate">Visit Strategy</span>
-                      </button>
-                      </a>
-
-                    <!-- old 
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#d2e2f3] text-[#14191f] text-sm font-medium leading-normal"
-                    >
-                      <span class="truncate">Visit Strategy</span>
-                    </button>
-                       --> 
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Financial Solution Subsidiaries --> 
-            <div class="p-4 @container">
-              <div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("assets/capital-compass-insights.webp");'
-                  role="img"
-                  aria-label="Capital Compass combining financial direction with statistics and analytical insight"
-                ></div>
-                <div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 @xl:px-4">
-                  <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Capital Compass</p>
-                  <div class="flex items-end gap-3 justify-between">
-                    <p class="text-[#9badc0] text-base font-normal leading-normal">
-                      Providing comprehensive financial services, including investment management, wealth planning and corporate finance solutions.
-                    </p>
-
-                    <a href="https://capitalcompass.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#d2e2f3] text-[#14191f] text-sm font-medium leading-normal"
-                    >
-                      <span class="truncate">Visit Finance</span>
-                    </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Technology Innovation Subsidiaries --> 
-            <div class="p-4 @container">
-              <div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("assets/vector-bound-intelligence.webp");'
-                  role="img"
-                  aria-label="Vector Bound transforming diverse signals into structured strategic intelligence"
-                ></div>
-                <div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 @xl:px-4">
-                  <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Vector Bound</p>
-                  <div class="flex items-end gap-3 justify-between">
-                    <p class="text-[#9badc0] text-base font-normal leading-normal">
-                      A strategic intelligence and insight platform that curates high-signal knowledge across business strategy, finance, technology and industry trends. Besides, help professionals, founders and decision-makers navigate complex markets with structured thinking.
-                      
-                    </p>
-
-                    <a href="https://vectorbound.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#d2e2f3] text-[#14191f] text-sm font-medium leading-normal"
-                    >
-                      <span class="truncate">Visit Technology</span>
-                    </button>
-                    </a>
-            
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Food & Travel Subsidiary -->
-            <div class="p-4 @container">
-              <div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("https://trailbite.trailblazerempire.com/assets/trailbite-share-review.png");'
-                ></div>
-                <div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 @xl:px-4">
-                  <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">TrailBite</p>
-                  <div class="flex items-end gap-3 justify-between">
-                    <p class="text-[#9badc0] text-base font-normal leading-normal">
-                      A Penang food and travel guide offering clear recommendations on where to eat, what to order, and whether each experience is worth your time and money.
-                    </p>
-
-                    <a href="https://trailbite.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#d2e2f3] text-[#14191f] text-sm font-medium leading-normal"
-                    >
-                      <span class="truncate">Visit TrailBite</span>
-                    </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- AI, Software & Automation Subsidiary -->
-            <div class="p-4 @container">
-              <div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("assets/nexora-business-layer.webp");'
-                  role="img"
-                  aria-label="Nexora orchestration layer connecting AI, systems, data, applications, and workflows"
-                ></div>
-                <div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 py-4 @xl:px-4">
-                  <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Nexora</p>
-                  <div class="flex items-end gap-3 justify-between">
-                    <p class="text-[#9badc0] text-base font-normal leading-normal">
-                      An AI and software enablement company that connects strategy, automation, data, systems, and digital products into a scalable business layer.
-                    </p>
-
-                    <span
-                      class="flex min-w-[104px] max-w-[480px] items-center justify-center overflow-hidden rounded-full h-8 px-4 border border-[#48617a] bg-[#1a2533] text-[#9badc0] text-sm font-medium leading-normal"
-                      aria-label="Nexora website coming soon"
-                    >
-                      <span class="truncate">Coming Soon</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Why Nexora Exists -->
-            <div class="px-4 pb-4">
-              <section class="rounded-xl border border-[#314c68] bg-[#1a2533] p-6">
-                <p class="text-[#90accb] text-xs font-bold uppercase tracking-[0.16em]">Why Nexora Exists</p>
-                <h3 class="text-white text-2xl font-bold leading-tight pt-2">The business layer between ambition and execution</h3>
-                <p class="text-[#9badc0] text-base font-normal leading-relaxed pt-3">
-                  Businesses rarely lack tools. The real gap appears when systems are disconnected, workflows stay manual, data remains fragmented, and operational bottlenecks limit efficiency, outcomes, and scale. Nexora brings these parts together as an enabling business layer—turning AI strategy into connected automation, reliable software, and scalable execution.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-5" aria-label="Nexora capabilities">
-                  <span class="rounded-full bg-[#24384c] px-3 py-1 text-[#d2e2f3] text-xs">AI Strategy</span>
-                  <span class="rounded-full bg-[#24384c] px-3 py-1 text-[#d2e2f3] text-xs">Automation Consulting</span>
-                  <span class="rounded-full bg-[#24384c] px-3 py-1 text-[#d2e2f3] text-xs">Software Development</span>
-                  <span class="rounded-full bg-[#24384c] px-3 py-1 text-[#d2e2f3] text-xs">AI SaaS Platforms</span>
-                  <span class="rounded-full bg-[#24384c] px-3 py-1 text-[#d2e2f3] text-xs">Web &amp; App Development</span>
-                </div>
-                <p class="text-[#7895b4] text-sm pt-4">
-                  Future capabilities: cloud infrastructure and system integration.
-                </p>
-              </section>
-            </div>
-            <!-- End of Subsidiaries --> 
+      <section class="content section-alt">
+        <div class="wrap">
+          <div class="section-heading reveal"><p class="eyebrow">What the group connects</p><h2>A wider view of the forces shaping durable value.</h2><p>Business outcomes rarely depend on one function alone. TrailBlazer Empire examines how direction, capital, markets and enabling systems interact before deciding where intervention creates the greatest value.</p></div>
+          <div class="connect-grid reveal">
+            <article class="connect-card"><span class="connect-number">01 · Direction</span><h3>Strategic clarity</h3><p>Diagnose complexity, define the real problem and establish priorities leaders can act on.</p></article>
+            <article class="connect-card"><span class="connect-number">02 · Organization</span><h3>Operating alignment</h3><p>Clarify ownership, accountability, authority and the framework required to execute.</p></article>
+            <article class="connect-card"><span class="connect-number">03 · Capital &amp; markets</span><h3>Resource intelligence</h3><p>Interpret fiscal priorities, capital conditions, industry structures and value-chain shifts.</p></article>
+            <article class="connect-card"><span class="connect-number">04 · Enablement</span><h3>Scalable systems</h3><p>Connect strategy, technology, data, software and workflows into repeatable execution.</p></article>
           </div>
         </div>
-        <footer class="flex justify-center">
-          <div class="flex max-w-[960px] flex-1 flex-col">
+      </section>
 
-            <!-- Footer Block Starts here --> 
-            <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
-
-              <!-- Alignment and define  Policy and TnS --> 
-              <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
-                <a class="text-[#9badc0] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
-                <a class="text-[#9badc0] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
-              </div> 
-
-              <!-- Alignment and define Logo --> 
-              <div class="flex flex-wrap justify-center gap-4">
-                <!-- Twitter logo --> 
-                <a href="#">
-                  <div class="text-[#9badc0]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                      <path
-                        d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
-                      ></path>
-                    </svg>
-                  </div>
-                </a>
-                <!-- LinkedinLogo --> 
-                <a href="https://www.linkedin.com/in/ts-rheeshaalaen-sabapathy-167316b4/">
-                  <div class="text-[#9badc0]" data-icon="LinkedinLogo" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                      <path
-                        d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"
-                      ></path>
-                    </svg>
-                  </div>
-                </a> 
-                  <!-- YouTube logo -->
-                <a href="https://www.youtube.com/@rheeshaalaen">
-                  <div class="text-[#9badc0]" data-icon="YoutubeLogo" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 576 512">
-                      <path d="M549.7 124.1c-6.3-23.8-24.9-42.4-48.7-48.7C465.5 64 288 64 288 64S110.5 64 74.98 75.38c-23.81 6.34-42.45 24.94-48.71 48.73C15.98 160.5 16 224 16 224s-.02 63.5 10.27 99.9c6.26 23.8 24.9 42.4 48.71 48.7C110.5 384 288 384 288 384s177.5 0 213-11.4c23.8-6.3 42.4-24.9 48.7-48.7C560 287.5 560 224 560 224s0-63.5-10.3-99.9zM232 312V136l142 88-142 88z"/>
-                        </svg>
-                  </div>
-                </a>
-                <!-- Medium logo -->
-              <a href="https://medium.com/@TrailBlazer_Empire">
-                <div class="text-[#9badc0]" data-icon="MediumLogo" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 1043.63 592.71">
-                    <path d="M588.67 296.35c0 163.63-131.25 296.36-293.93 296.36C131.06 592.71 0 459.98 0 296.35 0 132.71 131.06 0 294.74 0c162.68 0 293.93 132.71 293.93 296.35m327.02-7.53c0 154.49-65.63 279.69-146.61 279.69-80.98 0-146.61-125.2-146.61-279.69 0-154.48 65.63-279.68 146.61-279.68 80.98 0 146.61 125.2 146.61 279.68m127.94 0c0 142.32-23.19 257.76-51.78 257.76-28.59 0-51.78-115.44-51.78-257.76 0-142.32 23.19-257.76 51.78-257.76 28.59 0 51.78 115.44 51.78 257.76"/>
-                  </svg>
-                </div>
-              </a>
-                  <!-- TikTok logo -->
-                  <a href="https://www.tiktok.com/@rheeshaalaen?_r=1&amp;_t=ZS-98BjuZpHxxM">
-                    <div class="text-[#9badc0]" data-icon="TiktokLogo" data-size="24px" data-weight="regular">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 448 512">
-                          <path d="M448,209.9v125.3c-42.7,0-83.5-12.5-117.3-34v100.6c0,59.3-48,107.3-107.3,107.3S116,461.1,116,401.8s48-107.3,107.3-107.3c6.2,0,12.3.6,18.2,1.6v85.3c-5.8-1.6-11.9-2.5-18.2-2.5-33.8,0-61.2,27.4-61.2,61.2s27.4,61.2,61.2,61.2c33.8,0,61.2-27.4,61.2-61.2V96h68.1c6.3,36.9,34.7,66.2,71.6,73.9Z"/>
-                        </svg>
-                    </div>
-                  </a>
-                <!-- Spotify logo -->
-                  <a href="https://open.spotify.com/show/3L4pfrVolTlElLvPqSEKpQ?si=4627f415b3c649eb&nd=1&dlsi=0af4df51aa0d48cf" target="_blank">
-                    <div class="text-[#9badc0]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 496 512">
-                        <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm100.7 365.5c-4 6.6-12.6 8.7-19.2 4.7-52.6-32.2-118.8-39.5-196.6-21.7-7.5 1.7-15-3-16.7-10.5-1.7-7.5 3-15 10.5-16.7 85.2-19.5 158.8-11 217.6 24.9 6.6 4 8.7 12.6 4.7 19.3zm27.5-61.2c-5 8.2-15.7 10.8-23.9 5.8-60.2-36.9-152-47.6-223.3-26-9.3 2.8-19.2-2.5-22-11.8-2.8-9.3 2.5-19.2 11.8-22 81.6-24.6 183-12.7 256.5 31.8 8.2 5 10.8 15.7 5.8 23.9zm2.3-63.7c-72.1-42.8-191.2-46.7-260-25.3-11.2 3.4-23.1-2.9-26.5-14.1-3.4-11.2 2.9-23.1 14.1-26.5 78.5-24.4 209-19.9 292.3 29.4 10.2 6.1 13.6 19.3 7.5 29.5-6.1 10.2-19.3 13.6-29.5 7.5z"/>
-                      </svg>
-                    </div>
-                  </a>
-              </div>
-              <!-- Ends Alignment and define logo --> 
-              <p class="text-[#9badc0] text-base font-normal leading-normal">© 2026 TrailBlazer Empire. All rights reserved.</p>
-            </footer>
+      <section class="content" id="ventures">
+        <div class="wrap">
+          <div class="section-heading reveal"><p class="eyebrow">Portfolio ventures</p><h2>Five focused ventures. One connected intelligence layer.</h2><p>Each venture addresses a different decision environment while contributing insight, capability or market perspective to the wider group.</p></div>
+          <div class="portfolio-grid">
+            <article class="venture venture-vision reveal" id="vision-craft">
+              <div class="venture-media"><img src="https://raw.githubusercontent.com/TrailBlaZerEmpire/TrailBlazer_Empire/main/assets/vision-craft-lotus.webp" alt="A single lotus flower representing clarity and elegant strategic solutions" /></div>
+              <div class="venture-body"><div class="venture-top"><span class="venture-kicker">Strategic diagnosis &amp; organizational framing</span><span class="status">Active</span></div><h3>Vision Craft</h3><p>A strategy consultancy helping leaders establish shared language, clarify ownership and resolve cross-department disconnects—especially as organizations grow across teams, markets and working environments.</p><a class="venture-link" href="https://visioncraft.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">Explore Vision Craft ↗</a></div>
+            </article>
+            <article class="venture venture-capital reveal" id="capital-compass">
+              <div class="venture-media"><img src="https://raw.githubusercontent.com/TrailBlaZerEmpire/TrailBlazer_Empire/main/assets/capital-compass-insights.webp" alt="Financial reports, statistics and a compass representing capital insight" /></div>
+              <div class="venture-body"><div class="venture-top"><span class="venture-kicker">Financial, capital &amp; ecosystem strategy</span><span class="status">Active</span></div><h3>Capital Compass</h3><p>Institutional capital and ecosystem intelligence connecting fiscal priorities, monetary conditions, sector dynamics, market demand and capital flows to strategic value creation.</p><div class="disclaimer">Research and strategic intelligence only. Capital Compass is not licensed to provide investment advice.</div><a class="venture-link" href="https://capitalcompass.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">Explore Capital Compass ↗</a></div>
+            </article>
+            <article class="venture venture-vector reveal" id="vector-bound">
+              <div class="venture-media"><img src="https://raw.githubusercontent.com/TrailBlaZerEmpire/TrailBlazer_Empire/main/assets/vector-bound-intelligence.webp" alt="Structured signals converging into a central intelligence point" /></div>
+              <div class="venture-body"><div class="venture-top"><span class="venture-kicker">Industry &amp; value-chain intelligence</span><span class="status">Active</span></div><h3>Vector Bound</h3><p>Expertise-led market intelligence examining industry structure, value-chain dynamics, competitive positions and commercial attractiveness, with particular depth in semiconductors.</p><a class="venture-link" href="https://vectorbound.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">Explore Vector Bound ↗</a></div>
+            </article>
+            <article class="venture venture-trailbite reveal" id="trailbite">
+              <div class="venture-media"><img src="https://trailbite.trailblazerempire.com/assets/trailbite-share-review.png" alt="TrailBite food and travel guide featuring Penang dishes" /></div>
+              <div class="venture-body"><div class="venture-top"><span class="venture-kicker">Food &amp; travel discovery</span><span class="status">Active</span></div><h3>TrailBite</h3><p>A Penang food and travel guide offering clear recommendations on where to eat, what to order and whether each experience is worth your time and money.</p><a class="venture-link" href="https://trailbite.trailblazerempire.com/" target="_blank" rel="noopener noreferrer">Explore TrailBite ↗</a></div>
+            </article>
+            <article class="venture venture-nexora reveal" id="nexora">
+              <div class="venture-media"><img src="https://raw.githubusercontent.com/TrailBlaZerEmpire/TrailBlazer_Empire/main/assets/nexora-business-layer.webp" alt="Nexora orchestration layer connecting AI, systems, data and workflows" /></div>
+              <div class="venture-body"><div class="venture-top"><span class="venture-kicker">AI, automation &amp; digital enablement</span><span class="status">Website in development</span></div><h3>Nexora</h3><p>The enabling business layer between ambition and execution—connecting strategy, automation, software, data, systems and workflows so organizations can operate more efficiently and scale with greater control.</p><div class="nexora-capabilities" aria-label="Nexora capabilities"><span>AI Strategy</span><span>Automation</span><span>Software Development</span><span>AI SaaS</span><span>Web &amp; Applications</span></div></div>
+            </article>
           </div>
-        </footer>
+        </div>
+      </section>
+
+      <section class="content section-alt">
+        <div class="wrap thesis-shell">
+          <div class="reveal"><p class="eyebrow">Why the group exists</p><p class="thesis-quote">Organizations do not usually lack effort. They struggle when direction, ownership, capital, systems and execution are misaligned.</p></div>
+          <div class="thesis-copy reveal"><p class="eyebrow">From complexity to operating response</p><h2>Close the gap between ambition and execution.</h2><p>TrailBlazer Empire was established to help decision-makers understand the whole problem before committing resources. The group brings together strategic framing, organizational design, capital discipline, industry intelligence and technology enablement.</p><div class="method-row"><article class="method-step"><strong>Diagnose</strong><p>Define the real problem, priority, urgency and desired outcome.</p></article><article class="method-step"><strong>Align</strong><p>Clarify ownership, capabilities, resources and decision rights.</p></article><article class="method-step"><strong>Enable</strong><p>Connect the right venture, people and systems to execution.</p></article></div><a class="button" style="margin-top:1.4rem" href="AboutUs.html">Understand Our Approach →</a></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap cta reveal"><div class="cta-inner"><div><p class="eyebrow">Start with the problem</p><h2>What needs to change—and why now?</h2><p>Bring us the problem, desired outcome, priority and urgency. We will identify the appropriate venture, capability or collaboration model.</p></div><a class="button" href="ContactUs.html"><span aria-hidden="true">↗</span>Start a Conversation</a></div></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div><strong>TrailBlazer Empire</strong><p class="footer-copy">A founder-led strategic intelligence group connecting organizational direction, institutional capital and market opportunity. © 2026 TrailBlazer Empire.</p></div>
+        <div class="socials" aria-label="Social channels">
+          <a href="https://www.linkedin.com/in/ts-rheeshaalaen-sabapathy-167316b4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          <a href="https://www.youtube.com/@rheeshaalaen" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
+          <a href="https://medium.com/@TrailBlazer_Empire" target="_blank" rel="noopener noreferrer" aria-label="Medium">M</a>
+          <a href="https://www.tiktok.com/@rheeshaalaen?_r=1&amp;_t=ZS-98BjuZpHxxM" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TT</a>
+          <a href="https://open.spotify.com/show/3L4pfrVolTlElLvPqSEKpQ?si=4627f415b3c649eb&amp;nd=1&amp;dlsi=0af4df51aa0d48cf" target="_blank" rel="noopener noreferrer" aria-label="Spotify">SP</a>
+        </div>
       </div>
-    </div>
+    </footer>
+
+    <script>
+      (() => {
+        const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const progress=document.querySelector(".scroll-progress");
+        if(!reducedMotion&&"IntersectionObserver" in window){
+          document.documentElement.classList.add("motion-ready");
+          const observer=new IntersectionObserver((entries,activeObserver)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");activeObserver.unobserve(entry.target)}})},{threshold:.12});
+          document.querySelectorAll(".reveal").forEach((item)=>observer.observe(item));
+        }
+        let ticking=false;
+        window.addEventListener("scroll",()=>{if(ticking)return;ticking=true;window.requestAnimationFrame(()=>{const available=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=`${available>0?Math.min(100,Math.max(0,window.scrollY/available*100)):0}%`;ticking=false})},{passive:true});
+      })();
+    </script>
   </body>
 </html>
+
