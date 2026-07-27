@@ -96,15 +96,18 @@
       .ecosystem-core { position: relative; z-index: 2; width: 12rem; height: 12rem; display: grid; place-items: center; padding: 1.4rem; border: 1px solid rgba(31,107,82,.3); border-radius: 50%; background: linear-gradient(135deg,var(--green-deep),var(--green)); color: white; text-align: center; box-shadow: 0 25px 60px rgba(31,107,82,.22); }
       .ecosystem-core strong { font-size: 1.05rem; line-height: 1.2; }
       .ecosystem-core span { display: block; margin-top: .4rem; color: #d8e8e0; font-size: .67rem; }
-      .orbit-link { position: absolute; z-index: 3; width: 7.6rem; min-height: 4.6rem; display: grid; place-items: center; padding: .7rem; border: 1px solid var(--stone); border-radius: 1rem; background: rgba(255,255,255,.94); color: var(--ink); font-size: .72rem; font-weight: 800; line-height: 1.25; text-align: center; text-decoration: none; box-shadow: 0 12px 28px rgba(71,63,48,.08); transition: transform 220ms ease, border-color 220ms ease; }
-      .orbit-link:hover { transform: translateY(-4px) scale(1.03); border-color: var(--orbit-accent,var(--green)); }
+      .orbit-track { position: absolute; inset: 0; z-index: 3; animation: ecosystem-orbit 42s linear infinite; }
+      .orbit-link { position: absolute; width: 7.6rem; min-height: 4.6rem; display: grid; place-items: center; padding: .7rem; border: 1px solid var(--stone); border-radius: 1rem; background: rgba(255,255,255,.94); color: var(--ink); font-size: .72rem; font-weight: 800; line-height: 1.25; text-align: center; text-decoration: none; box-shadow: 0 12px 28px rgba(71,63,48,.08); animation: ecosystem-counter-orbit 42s linear infinite; transition: scale 240ms ease, border-color 240ms ease, background 240ms ease, box-shadow 240ms ease; }
+      .orbit-link:hover, .orbit-link:focus-visible { z-index: 4; scale: 1.07; border-color: var(--orbit-accent,var(--green)); background: color-mix(in srgb,var(--orbit-accent,var(--green)) 8%,white); box-shadow: 0 20px 38px color-mix(in srgb,var(--orbit-accent,var(--green)) 18%,transparent); }
       .orbit-link span { display: block; color: var(--orbit-accent,var(--green)); font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
-      .orbit-1 { --orbit-accent:#b98535; top: 0; left: 50%; transform: translateX(-50%); }
-      .orbit-1:hover { transform: translateX(-50%) translateY(-4px) scale(1.03); }
+      .ecosystem:hover .orbit-track, .ecosystem:hover .orbit-link, .ecosystem:focus-within .orbit-track, .ecosystem:focus-within .orbit-link { animation-play-state: paused; }
+      .orbit-1 { --orbit-accent:#b98535; top: 0; left: 50%; margin-left: -3.8rem; }
       .orbit-2 { --orbit-accent:#1f6b52; top: 7.5rem; right: 0; }
       .orbit-3 { --orbit-accent:#9b4965; bottom: 2rem; right: 3rem; }
       .orbit-4 { --orbit-accent:#d46d37; bottom: 2rem; left: 3rem; }
       .orbit-5 { --orbit-accent:#6654a3; top: 7.5rem; left: 0; }
+      @keyframes ecosystem-orbit { to { transform: rotate(360deg); } }
+      @keyframes ecosystem-counter-orbit { to { transform: rotate(-360deg); } }
 
       .fact-strip { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1px; margin-top: 3.5rem; overflow: hidden; border: 1px solid var(--stone); border-radius: var(--radius-md); background: var(--stone); box-shadow: 0 14px 36px rgba(71,63,48,.06); }
       .fact { padding: 1.3rem 1.5rem; background: rgba(255,255,255,.9); }
@@ -197,6 +200,7 @@
       @media (prefers-reduced-motion:reduce) {
         html { scroll-behavior: auto; }
         *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+        .orbit-track,.orbit-link { animation: none !important; }
         .motion-ready .reveal { opacity:1; transform:none; }
       }
     </style>
@@ -235,11 +239,13 @@
             </div>
             <aside class="ecosystem reveal" aria-label="TrailBlazer Empire venture ecosystem">
               <div class="ecosystem-core"><div><strong>TrailBlazer Empire</strong><span>Direction · Capital · Governance · Enablement</span></div></div>
-              <a class="orbit-link orbit-1" href="#vision-craft"><span>Strategy</span>Vision Craft</a>
-              <a class="orbit-link orbit-2" href="#capital-compass"><span>Capital</span>Capital Compass</a>
-              <a class="orbit-link orbit-3" href="#vector-bound"><span>Markets</span>Vector Bound</a>
-              <a class="orbit-link orbit-4" href="#trailbite"><span>Experience</span>TrailBite</a>
-              <a class="orbit-link orbit-5" href="#nexora"><span>Enablement</span>Nexora</a>
+              <div class="orbit-track">
+                <a class="orbit-link orbit-1" href="#vision-craft"><span>Strategy</span>Vision Craft</a>
+                <a class="orbit-link orbit-2" href="#capital-compass"><span>Capital</span>Capital Compass</a>
+                <a class="orbit-link orbit-3" href="#vector-bound"><span>Markets</span>Vector Bound</a>
+                <a class="orbit-link orbit-4" href="#trailbite"><span>Experience</span>TrailBite</a>
+                <a class="orbit-link orbit-5" href="#nexora"><span>Enablement</span>Nexora</a>
+              </div>
             </aside>
           </div>
           <div class="fact-strip reveal" aria-label="TrailBlazer Empire facts"><div class="fact"><strong>Five ventures</strong><span>Distinct perspectives within one strategic ecosystem</span></div><div class="fact"><strong>Malaysia · Singapore</strong><span>Group contact points for regional engagement</span></div><div class="fact"><strong>Problem first</strong><span>Every conversation begins with priority, urgency and outcome</span></div></div>
