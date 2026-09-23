@@ -190,6 +190,47 @@ Answer:
 
 Key changes from v1: (1) explicit per-venture keyword disambiguation instead of one vague "when relevant" line — this is what fixed the Capital Compass/Vector Bound confusion; (2) "never recommend one without also giving its URL" as its own hard rule instead of folded into a softer sentence; (3) a one-shot worked example to anchor the expected phrasing and format. Re-run against all 5 questions: all 5 passed (correct venture + verbatim URL for Q1–Q4, no venture mentioned for Q5).
 
+**Second regression found in live testing (2026-09-24, post-deploy):** the user tested "I need to automate some workflows with AI." on the live site and got **Vision Craft** instead of **Nexora** — despite Nexora's own description already containing the word "workflows". Root cause: Vision Craft's description mentioned "cross-team disconnects", which is close enough to "workflows" in embedding space for the model to conflate a technical automation request with an organizational-alignment one.
+
+Fix: sharpened both descriptions to state the *kind* of problem, not just keywords — Nexora is framed as "a technical build-out, not an organizational one" and Vision Craft as "a human/alignment problem, not a technical one" — and added a second worked example specifically for the automate-workflows phrasing that was failing. Verified: the original failing question now correctly returns Nexora, a true organizational-alignment question ("teams stepping on each other, no one owns the decision") still correctly returns Vision Craft (not pulled toward Nexora), "can you build me a chatbot" correctly returns Nexora, and all 5 original test questions still pass (no regression from the wording change).
+
+Current live template (final, as of this fix):
+
+```
+{context}
+
+---
+
+TrailBlazer Empire has five subsidiary ventures:
+
+- Vision Craft — strategic diagnosis and organizational framing: clarifying who owns what and resolving disagreements or disconnects between teams (a human/alignment problem, not a technical one): https://visioncraft.trailblazerempire.com/
+- Capital Compass — financial, capital and ecosystem strategy (fiscal priorities, monetary conditions, capital flows; research only, not investment advice): https://capitalcompass.trailblazerempire.com/
+- Vector Bound — industry and value-chain market intelligence (competitive positioning, sector and semiconductor dynamics): https://vectorbound.trailblazerempire.com/
+- TrailBite — Penang food and travel discovery and recommendations: https://trailbite.trailblazerempire.com/
+- Nexora — AI, automation and digital enablement: building or automating workflows, software, chatbots, tools and systems (a technical build-out, not an organizational one): https://nexora.trailblazerempire.com/
+
+Before answering, check whether the question clearly matches ONE of these five ventures based on their descriptions above — match the actual topic, not just shared words. Financial, capital, fundraising or cash-flow topics go to Capital Compass. Industry, competitive, sector or semiconductor topics go to Vector Bound. Food, dining or travel topics go to TrailBite. Any request to automate, build, or technically implement something (workflows, software, tools, AI systems) goes to Nexora. Questions about organizational alignment, unclear ownership, or resolving disagreements between teams — with no technical build involved — go to Vision Craft.
+
+- If it matches one venture: name that venture and include its exact URL from the list above, verbatim, in your answer. This is required whenever you recommend a venture — never recommend one without also giving its URL.
+- If it matches no venture, or the question is a general question about TrailBlazer Empire itself: do not mention any venture.
+- Never invent a URL that is not in the list above.
+
+Examples:
+Question: "Who can help me benchmark competitors in the auto industry?"
+Answer: "That falls within Vector Bound's focus on industry and value-chain intelligence. You can learn more at https://vectorbound.trailblazerempire.com/."
+
+Question: "I need to automate some workflows with AI."
+Answer: "That falls within Nexora's focus on AI, automation and digital enablement — building and automating workflows is exactly what they do. You can learn more at https://nexora.trailblazerempire.com/."
+
+Given the context above, answer the question as best as possible.
+
+Question: {question}
+
+Answer:
+```
+
+**Known risk (already hit once):** editing anything in the Langflow flow editor UI while a stale copy of the flow is loaded in that browser tab will silently overwrite this prompt with whatever the UI last had cached — this happened once mid-session and required re-applying the patch. Always refresh the Langflow UI tab before editing the flow there, if this prompt has been changed via the API since that tab was last loaded.
+
 - [x] **Step 6: No commit for this task** — the change lives in Langflow's Postgres database, not in either git repo. Proceed to Task 2.
 
 ---
