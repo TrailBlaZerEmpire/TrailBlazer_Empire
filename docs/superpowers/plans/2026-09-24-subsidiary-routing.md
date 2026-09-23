@@ -1,6 +1,6 @@
 # Subsidiary-Routing Intelligence Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Teach the shared Langflow flow about TrailBlazer Empire's five subsidiary ventures so it recommends the relevant one in context, and make both chatbot widgets render those recommendations as real clickable links.
 
@@ -32,7 +32,7 @@
 - Consumes: `POST /api/v1/login` (existing, already used earlier this session), `GET /api/v1/flows/{id}`, `PATCH /api/v1/flows/{id}`.
 - Produces: nothing consumed by Task 2 or 3 — those only depend on the *rendering* side, not on this task having run first. Order doesn't matter, but doing this one first lets you verify the AI's actual answer text before touching any frontend.
 
-- [ ] **Step 1: Fetch the current flow and confirm the baseline template**
+- [x] **Step 1: Fetch the current flow and confirm the baseline template**
 
 ```bash
 set -a; source "F:/Projects/trailblazer-rag-chatbot/trailblazer-rag-chatbot-starter/.env"; set +a
@@ -61,7 +61,7 @@ Question: {question}
 Answer:
 ```
 
-- [ ] **Step 2: Build the mutated flow payload**
+- [x] **Step 2: Build the mutated flow payload**
 
 ```bash
 SP="C:/Users/Owner/AppData/Local/Temp/claude/F--Projects-trailblazer-rag-chatbot-trailblazer-rag-chatbot-starter/5d9af071-5f73-4016-968e-db9cd2df54b8/scratchpad"
@@ -92,7 +92,7 @@ console.log('wrote flow_patch.json, bytes:', fs.statSync('$SP/flow_patch.json').
 "
 ```
 
-- [ ] **Step 3: PATCH the flow**
+- [x] **Step 3: PATCH the flow**
 
 ```bash
 SP="C:/Users/Owner/AppData/Local/Temp/claude/F--Projects-trailblazer-rag-chatbot-trailblazer-rag-chatbot-starter/5d9af071-5f73-4016-968e-db9cd2df54b8/scratchpad"
@@ -107,7 +107,7 @@ curl -s -X PATCH http://localhost:7860/api/v1/flows/af5f8f1f-d4b5-4ad4-a725-a72e
 
 Expected: `HTTP 200`.
 
-- [ ] **Step 4: Verify the new template is live**
+- [x] **Step 4: Verify the new template is live**
 
 ```bash
 set -a; source "F:/Projects/trailblazer-rag-chatbot/trailblazer-rag-chatbot-starter/.env"; set +a
@@ -124,7 +124,7 @@ console.log(p.data.node.template.template.value.includes('Vision Craft') ? 'PASS
 
 Expected: `PASS: venture directory present`.
 
-- [ ] **Step 5: Run 5 test questions against the live flow and manually judge the answers**
+- [x] **Step 5: Run 5 test questions against the live flow and manually judge the answers**
 
 ```bash
 set -a; source "F:/Projects/trailblazer-rag-chatbot/trailblazer-rag-chatbot-starter/.env"; set +a
@@ -152,7 +152,7 @@ Expected, read manually (this is judgment, not an exact-match assertion — an L
 
 If any answer recommends a venture with a URL not in the fixed list, or recommends a venture on the unrelated Q5, revise the prompt wording (strengthen "only when genuinely relevant" / "never invent a URL") and repeat from Step 2.
 
-- [ ] **Step 6: No commit for this task** — the change lives in Langflow's Postgres database, not in either git repo. Proceed to Task 2.
+- [x] **Step 6: No commit for this task** — the change lives in Langflow's Postgres database, not in either git repo. Proceed to Task 2.
 
 ---
 
@@ -165,7 +165,7 @@ If any answer recommends a venture with a URL not in the fixed list, or recommen
 - Consumes: nothing from Task 1 or 3.
 - Produces: `linkify(text)` — a local function returning a `DocumentFragment`. Not exported or consumed elsewhere; Task 3 defines its own independent copy in the other project.
 
-- [ ] **Step 1: Add the `linkify` helper**
+- [x] **Step 1: Add the `linkify` helper**
 
 In `assets/nexora-chat.js`, right after the `openBooking` function definition, add:
 
@@ -202,7 +202,7 @@ In `assets/nexora-chat.js`, right after the `openBooking` function definition, a
   };
 ```
 
-- [ ] **Step 2: Use it in `addMessage`**
+- [x] **Step 2: Use it in `addMessage`**
 
 Find this line inside `addMessage`:
 
@@ -216,14 +216,14 @@ Replace with:
     item.appendChild(linkify(text));
 ```
 
-- [ ] **Step 3: Manually verify in a real browser**
+- [x] **Step 3: Manually verify in a real browser**
 
 Serve the site locally (`npx serve .` from the repo root, or reuse the `.claude/launch.json` config from the Book a Call task), open the Nexora panel, and use the browser console to call `addMessage` indirectly by mocking `fetch` the same way it was done for the Book a Call nudge testing earlier — or simpler, since Task 1 is already live, just ask a real venture-relevant question (e.g. "Can you recommend somewhere to eat in Penang?") and confirm:
 1. The reply renders with a real, clickable, underlined-on-hover link (inspect the DOM: an `<a href="https://trailbite.trailblazerempire.com/">` element, not plain text).
 2. Clicking it opens the venture site in a new tab.
 3. The existing Book a Call chip, nudge (every 2nd message), and offline auto-button still work unchanged (regression check — `linkify` only changes step inside `addMessage`, not the `options.action` branch).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 cd "/e/TrailBlazer Empire"
@@ -242,7 +242,7 @@ git commit -m "feat: render clickable links in Nexora assistant replies"
 - Consumes: nothing from Task 1 or 2.
 - Produces: nothing consumed elsewhere.
 
-- [ ] **Step 1: Add the same `linkify` helper**
+- [x] **Step 1: Add the same `linkify` helper**
 
 In `public/widget.js`, right after the line `root.querySelector('.tb-title').textContent = title;`, add:
 
@@ -279,7 +279,7 @@ In `public/widget.js`, right after the line `root.querySelector('.tb-title').tex
   };
 ```
 
-- [ ] **Step 2: Use it in `addMessage`**
+- [x] **Step 2: Use it in `addMessage`**
 
 Find:
 
@@ -305,7 +305,7 @@ Replace with:
   }
 ```
 
-- [ ] **Step 3: Style links to match the widget's theme**
+- [x] **Step 3: Style links to match the widget's theme**
 
 Find:
 
@@ -319,7 +319,7 @@ Add right after it, inside the same `<style>` template literal:
       .tb-message a { color: ${accent}; font-weight: 700; text-decoration: underline; }
 ```
 
-- [ ] **Step 4: Rebuild the chatbot container so it picks up the change**
+- [x] **Step 4: Rebuild the chatbot container so it picks up the change**
 
 No commit for this task — `F:\Projects\trailblazer-rag-chatbot\trailblazer-rag-chatbot-starter` is not a git repository (confirmed: no `.git` directory). But the Dockerfile `COPY public ./public`s the widget into the image at build time and it isn't bind-mounted (only `./config` is), so a plain restart will keep serving the old file. Rebuild:
 
@@ -328,7 +328,7 @@ cd "F:/Projects/trailblazer-rag-chatbot/trailblazer-rag-chatbot-starter"
 docker compose up -d --build chatbot
 ```
 
-- [ ] **Step 5: Manually verify in a real browser**
+- [x] **Step 5: Manually verify in a real browser**
 
 The chatbot container now serves the rebuilt widget at `http://localhost:3000`. Open it, open the chat widget, ask a venture-relevant question (e.g. "I need help thinking through capital strategy and cash flow."), and confirm:
 1. The reply renders a real clickable `<a>` element styled in the widget's accent color with an underline, not plain text.
