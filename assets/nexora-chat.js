@@ -91,7 +91,6 @@
   });
 
   let userMessageCount = 0;
-  let hasAutoOpenedForOffline = false;
 
   const submitMessage = async (value) => {
     const message = value.trim();
@@ -117,15 +116,15 @@
     } catch (error) {
       typing.remove();
       const offline = /fetch|unavailable|offline|configured/i.test(error.message);
-      addMessage(offline
-        ? "Nexora is currently offline. This working-hours service will return when the TrailBlazer system is online. You can still reach the team through the Contact page."
-        : "I couldn't complete that request. Please try again shortly.");
       if (offline) {
         wentOffline = true;
-        if (!hasAutoOpenedForOffline) {
-          hasAutoOpenedForOffline = true;
-          openBooking();
-        }
+        addMessage(
+          "Nexora is currently offline. This working-hours service will return when the TrailBlazer system is online. You can still reach the team through the Contact page, or book a call directly.",
+          "assistant",
+          { action: { label: "📅 Book a Call", onClick: openBooking } }
+        );
+      } else {
+        addMessage("I couldn't complete that request. Please try again shortly.");
       }
     } finally {
       input.disabled = false;
