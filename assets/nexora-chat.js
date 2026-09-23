@@ -25,10 +25,10 @@
       </header>
       <div class="nexora-chat__messages" role="log" aria-live="polite" aria-relevant="additions"></div>
       <div class="nexora-chat__prompts" aria-label="Suggested questions">
+        <button class="nexora-chat__prompt nexora-chat__prompt--book" type="button" data-action="book-call">📅 Book a Call</button>
         <button class="nexora-chat__prompt" type="button">Which venture fits my problem?</button>
         <button class="nexora-chat__prompt" type="button">How can TrailBlazer Empire help?</button>
         <button class="nexora-chat__prompt" type="button">Tell me about Nexora</button>
-        <button class="nexora-chat__prompt nexora-chat__prompt--book" type="button" data-action="book-call">📅 Book a Call</button>
       </div>
       <form class="nexora-chat__composer">
         <input class="nexora-chat__input" name="message" maxlength="2000" autocomplete="off" placeholder="Ask about our ventures or capabilities…" aria-label="Message Nexora Assistant" required />
@@ -50,13 +50,30 @@
   const input = root.querySelector(".nexora-chat__input");
   const send = root.querySelector(".nexora-chat__send");
 
-  const addMessage = (text, kind = "assistant") => {
+  const addMessage = (text, kind = "assistant", options = {}) => {
     const item = document.createElement("p");
     item.className = `nexora-chat__message${kind === "user" ? " nexora-chat__message--user" : ""}${kind === "typing" ? " nexora-chat__message--typing" : ""}`;
     item.textContent = text;
+    if (options.action) {
+      const actionButton = document.createElement("button");
+      actionButton.type = "button";
+      actionButton.className = "nexora-chat__message-action";
+      actionButton.textContent = options.action.label;
+      actionButton.addEventListener("click", options.action.onClick);
+      item.appendChild(document.createElement("br"));
+      item.appendChild(actionButton);
+    }
     messages.appendChild(item);
     messages.scrollTop = messages.scrollHeight;
     return item;
+  };
+
+  const openBooking = () => {
+    if (window.Calendly?.initPopupWidget) {
+      window.Calendly.initPopupWidget({ url: calendlyUrl });
+    } else {
+      window.open(calendlyUrl, "_blank", "noopener");
+    }
   };
 
   addMessage("Hello—I'm Nexora, the digital enablement venture within TrailBlazer Empire. I can help you understand the group, explore its five ventures, or identify where your business problem may fit.");
@@ -73,14 +90,19 @@
     if (event.key === "Escape" && root.dataset.open === "true") setOpen(false);
   });
 
+  let userMessageCount = 0;
+  let hasAutoOpenedForOffline = false;
+
   const submitMessage = async (value) => {
     const message = value.trim();
     if (!message || send.disabled) return;
     addMessage(message, "user");
+    userMessageCount += 1;
     input.value = "";
     input.disabled = true;
     send.disabled = true;
     const typing = addMessage("Nexora is thinking…", "typing");
+    let wentOffline = false;
     try {
       if (!endpoint) throw new Error("Chat endpoint is not configured.");
       const response = await fetch(endpoint, {
@@ -98,10 +120,22 @@
       addMessage(offline
         ? "Nexora is currently offline. This working-hours service will return when the TrailBlazer system is online. You can still reach the team through the Contact page."
         : "I couldn't complete that request. Please try again shortly.");
+      if (offline) {
+        wentOffline = true;
+        if (!hasAutoOpenedForOffline) {
+          hasAutoOpenedForOffline = true;
+          openBooking();
+        }
+      }
     } finally {
       input.disabled = false;
       send.disabled = false;
       input.focus();
+      if (!wentOffline && userMessageCount % 2 === 0) {
+        addMessage("Want to skip ahead? You can book a call directly.", "assistant", {
+          action: { label: "📅 Book a Call", onClick: openBooking }
+        });
+      }
     }
   };
 
@@ -109,13 +143,6 @@
     event.preventDefault();
     submitMessage(input.value);
   });
-  const openBooking = () => {
-    if (window.Calendly?.initPopupWidget) {
-      window.Calendly.initPopupWidget({ url: calendlyUrl });
-    } else {
-      window.open(calendlyUrl, "_blank", "noopener");
-    }
-  };
 
   root.querySelectorAll(".nexora-chat__prompt").forEach((button) => {
     if (button.dataset.action === "book-call") {

@@ -144,6 +144,19 @@
 .nexora-chat__message--typing { color: var(--nexora-muted); font-style: italic; }
 .nexora-chat__message a { color: var(--nexora-green); font-weight: 700; }
 
+.nexora-chat__message-action {
+  margin-top: .55rem;
+  padding: .45rem .75rem;
+  border: 1px solid var(--nexora-gold);
+  border-radius: .65rem;
+  background: white;
+  color: var(--nexora-gold);
+  font-size: .74rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.nexora-chat__message-action:hover { background: #fdf6e8; color: #b5822e; }
+
 .nexora-chat__prompts {
   display: flex;
   gap: .45rem;
