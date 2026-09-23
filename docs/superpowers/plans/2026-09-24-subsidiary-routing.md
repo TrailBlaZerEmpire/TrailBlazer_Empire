@@ -22,6 +22,8 @@
 - No changes to either relay/proxy server (`nexora-chat-relay/server.js`, `trailblazer-rag-chatbot-starter/server.js`) — both already pass model text through unchanged.
 - No changes to any knowledge base.
 
+**Post-hoc addendum (2026-09-24):** the Language Model component (`LanguageModelComponent-XSmrK`) was switched away from Google Gemini to OpenRouter (model `openai/gpt-4o-mini`) partway through this plan's execution, because the Google API key's free-tier daily quota (20 requests/day) was exhausted. Its `api_key` field is now `{load_from_db: true, value: "OPENROUTER_API_KEY"}`, referencing a Langflow global variable of that name (Settings → Global Variables) rather than any hardcoded value. This component only offers Google Generative AI or OpenRouter as providers — there is no native Groq option in this build.
+
 ---
 
 ### Task 1: Update the shared Langflow flow's Prompt component
@@ -151,6 +153,42 @@ Expected, read manually (this is judgment, not an exact-match assertion — an L
 - Q5 → does **not** shoehorn in a venture mention (this is a general question about the group's method, already covered by the knowledge base — answering it doesn't require picking one venture).
 
 If any answer recommends a venture with a URL not in the fixed list, or recommends a venture on the unrelated Q5, revise the prompt wording (strengthen "only when genuinely relevant" / "never invent a URL") and repeat from Step 2.
+
+**Outcome (actual run):** the model used at test time was `openai/gpt-4o-mini` via OpenRouter (the Google Gemini free-tier quota was exhausted, and the flow was switched to OpenRouter with its `api_key` field linked to the `OPENROUTER_API_KEY` global variable). The first version of the prompt above **failed** 3 of 5: Q1 named Capital Compass instead of Vector Bound, Q2 and Q3 didn't mention any venture at all, and the one correct case (Q4, Nexora) omitted the URL. Root cause: the single free-form paragraph wasn't strong enough disambiguation for "market" (which could plausibly mean Capital Compass or Vector Bound) and didn't hard-require the URL.
+
+Revised template (this is what's actually live now):
+
+```
+{context}
+
+---
+
+TrailBlazer Empire has five subsidiary ventures:
+
+- Vision Craft — strategic diagnosis and organizational framing (clarifying ownership, resolving cross-team disconnects): https://visioncraft.trailblazerempire.com/
+- Capital Compass — financial, capital and ecosystem strategy (fiscal priorities, monetary conditions, capital flows; research only, not investment advice): https://capitalcompass.trailblazerempire.com/
+- Vector Bound — industry and value-chain market intelligence (competitive positioning, sector and semiconductor dynamics): https://vectorbound.trailblazerempire.com/
+- TrailBite — Penang food and travel discovery and recommendations: https://trailbite.trailblazerempire.com/
+- Nexora — AI, automation and digital enablement (AI strategy, software, workflows, systems): https://nexora.trailblazerempire.com/
+
+Before answering, check whether the question clearly matches ONE of these five ventures based on their descriptions above — match the actual topic, not just shared words. Financial, capital, fundraising or cash-flow topics go to Capital Compass. Industry, competitive, sector or semiconductor topics go to Vector Bound. Food, dining or travel topics go to TrailBite. AI, automation or software topics go to Nexora. Organizational or strategy-framing topics go to Vision Craft.
+
+- If it matches one venture: name that venture and include its exact URL from the list above, verbatim, in your answer. This is required whenever you recommend a venture — never recommend one without also giving its URL.
+- If it matches no venture, or the question is a general question about TrailBlazer Empire itself: do not mention any venture.
+- Never invent a URL that is not in the list above.
+
+Example:
+Question: "Who can help me benchmark competitors in the auto industry?"
+Answer: "That falls within Vector Bound's focus on industry and value-chain intelligence. You can learn more at https://vectorbound.trailblazerempire.com/."
+
+Given the context above, answer the question as best as possible.
+
+Question: {question}
+
+Answer:
+```
+
+Key changes from v1: (1) explicit per-venture keyword disambiguation instead of one vague "when relevant" line — this is what fixed the Capital Compass/Vector Bound confusion; (2) "never recommend one without also giving its URL" as its own hard rule instead of folded into a softer sentence; (3) a one-shot worked example to anchor the expected phrasing and format. Re-run against all 5 questions: all 5 passed (correct venture + verbatim URL for Q1–Q4, no venture mentioned for Q5).
 
 - [x] **Step 6: No commit for this task** — the change lives in Langflow's Postgres database, not in either git repo. Proceed to Task 2.
 
