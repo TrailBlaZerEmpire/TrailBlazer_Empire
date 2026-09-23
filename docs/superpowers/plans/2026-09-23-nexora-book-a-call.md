@@ -1,6 +1,6 @@
 # Nexora Assistant "Book a Call" Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Add a persistent "📅 Book a Call" action to the Nexora Assistant widget that opens a branded Calendly popup, independent of the chat/relay/Langflow flow.
 
@@ -28,7 +28,7 @@
 - Consumes: `window.Calendly.initPopupWidget({ url })` — provided globally by Calendly's embed script once it loads. No guarantee on load timing, so every use must check `window.Calendly?.initPopupWidget` first.
 - Produces: nothing consumed by other tasks — this is the only task.
 
-- [ ] **Step 1: Add Calendly's embed assets to `index.html`**
+- [x] **Step 1: Add Calendly's embed assets to `index.html`**
 
 Open `index.html`. At line 27, right after the existing Nexora stylesheet link, add Calendly's stylesheet:
 
@@ -44,7 +44,7 @@ At line 219, right before the existing `nexora-chat.js` script tag, add Calendly
     <script defer src="assets/nexora-chat.js" data-endpoint="https://assistant.trailblazerempire.com/nexora-chat"></script>
 ```
 
-- [ ] **Step 2: Add the Calendly URL constant and button markup in `assets/nexora-chat.js`**
+- [x] **Step 2: Add the Calendly URL constant and button markup in `assets/nexora-chat.js`**
 
 Near the top of the IIFE (after the existing `const sessionKey = ...` line, before `const createId = ...`), add:
 
@@ -58,7 +58,7 @@ In the `root.innerHTML` template, inside `<div class="nexora-chat__prompts" ...>
         <button class="nexora-chat__prompt nexora-chat__prompt--book" type="button" data-action="book-call">📅 Book a Call</button>
 ```
 
-- [ ] **Step 3: Wire the button to open Calendly, with a fallback, and exclude it from the chat-prompt loop**
+- [x] **Step 3: Wire the button to open Calendly, with a fallback, and exclude it from the chat-prompt loop**
 
 Find this existing block near the end of the file:
 
@@ -88,7 +88,7 @@ Replace it with:
   });
 ```
 
-- [ ] **Step 4: Style the button as a call-to-action in `assets/nexora-chat.css`**
+- [x] **Step 4: Style the button as a call-to-action in `assets/nexora-chat.css`**
 
 After the existing rule:
 
@@ -107,7 +107,7 @@ add:
 .nexora-chat__prompt--book:hover { border-color: var(--nexora-gold); color: #b5822e; background: #fdf6e8; }
 ```
 
-- [ ] **Step 5: Manually verify in a real browser**
+- [x] **Step 5: Manually verify in a real browser**
 
 Serve the site locally (any static server works, e.g. from the repo root: `npx serve .` or open `index.html` directly), then:
 
@@ -119,7 +119,7 @@ Serve the site locally (any static server works, e.g. from the repo root: `npx s
 
 Expected: all 5 checks pass.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 cd "/e/TrailBlazer Empire"
