@@ -2,6 +2,7 @@
   const loader = document.currentScript;
   const endpoint = loader?.dataset.endpoint || "";
   const sessionKey = "trailblazer-nexora-session";
+  const calendlyUrl = "https://calendly.com/trailblazerempire/30min?background_color=001f29&text_color=f5f4ee&primary_color=8ad5c7";
   const createId = () => window.crypto?.randomUUID?.() || `nexora-${Date.now()}-${Math.random().toString(16).slice(2)}`;
   let sessionId = sessionStorage.getItem(sessionKey);
   if (!sessionId) {
@@ -27,6 +28,7 @@
         <button class="nexora-chat__prompt" type="button">Which venture fits my problem?</button>
         <button class="nexora-chat__prompt" type="button">How can TrailBlazer Empire help?</button>
         <button class="nexora-chat__prompt" type="button">Tell me about Nexora</button>
+        <button class="nexora-chat__prompt nexora-chat__prompt--book" type="button" data-action="book-call">📅 Book a Call</button>
       </div>
       <form class="nexora-chat__composer">
         <input class="nexora-chat__input" name="message" maxlength="2000" autocomplete="off" placeholder="Ask about our ventures or capabilities…" aria-label="Message Nexora Assistant" required />
@@ -107,7 +109,19 @@
     event.preventDefault();
     submitMessage(input.value);
   });
+  const openBooking = () => {
+    if (window.Calendly?.initPopupWidget) {
+      window.Calendly.initPopupWidget({ url: calendlyUrl });
+    } else {
+      window.open(calendlyUrl, "_blank", "noopener");
+    }
+  };
+
   root.querySelectorAll(".nexora-chat__prompt").forEach((button) => {
+    if (button.dataset.action === "book-call") {
+      button.addEventListener("click", openBooking);
+      return;
+    }
     button.addEventListener("click", () => submitMessage(button.textContent));
   });
 })();

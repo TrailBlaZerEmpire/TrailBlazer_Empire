@@ -165,6 +165,13 @@
 }
 .nexora-chat__prompt:hover { border-color: var(--nexora-green); color: var(--nexora-green); }
 
+.nexora-chat__prompt--book {
+  border-color: var(--nexora-gold);
+  color: var(--nexora-gold);
+  font-weight: 800;
+}
+.nexora-chat__prompt--book:hover { border-color: var(--nexora-gold); color: #b5822e; background: #fdf6e8; }
+
 .nexora-chat__composer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
