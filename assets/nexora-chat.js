@@ -53,7 +53,7 @@
   const addMessage = (text, kind = "assistant", options = {}) => {
     const item = document.createElement("p");
     item.className = `nexora-chat__message${kind === "user" ? " nexora-chat__message--user" : ""}${kind === "typing" ? " nexora-chat__message--typing" : ""}`;
-    item.textContent = text;
+    item.appendChild(linkify(text));
     if (options.action) {
       const actionButton = document.createElement("button");
       actionButton.type = "button";
@@ -74,6 +74,37 @@
     } else {
       window.open(calendlyUrl, "_blank", "noopener");
     }
+  };
+
+  const linkify = (text) => {
+    const fragment = document.createDocumentFragment();
+    const urlPattern = /(https?:\/\/[^\s]+)/g;
+    let lastIndex = 0;
+    let match;
+    while ((match = urlPattern.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+      let url = match[0];
+      let trailing = "";
+      const trailingMatch = url.match(/[.,;:!?)]+$/);
+      if (trailingMatch) {
+        trailing = trailingMatch[0];
+        url = url.slice(0, -trailing.length);
+      }
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.textContent = url;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+      fragment.appendChild(anchor);
+      if (trailing) fragment.appendChild(document.createTextNode(trailing));
+      lastIndex = urlPattern.lastIndex;
+    }
+    if (lastIndex < text.length) {
+      fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
+    return fragment;
   };
 
   addMessage("Hello—I'm Nexora, the digital enablement venture within TrailBlazer Empire. I can help you understand the group, explore its five ventures, or identify where your business problem may fit.");
