@@ -97,6 +97,15 @@
       .ecosystem-core { position: relative; z-index: 2; width: 12rem; height: 12rem; display: grid; place-items: center; padding: 1.4rem; border: 1px solid rgba(31,107,82,.3); border-radius: 50%; background: linear-gradient(135deg,var(--green-deep),var(--green)); color: white; text-align: center; box-shadow: 0 25px 60px rgba(31,107,82,.22); }
       .ecosystem-core strong { font-size: 1.05rem; line-height: 1.2; }
       .ecosystem-core span { display: block; margin-top: .4rem; color: #d8e8e0; font-size: .67rem; }
+      .founder-orbit { position: absolute; inset: 0; z-index: 4; animation: founder-orbit 36s linear infinite; }
+      .founder-profile { position: absolute; top: 4.45rem; left: 50%; width: 8.8rem; min-height: 4.35rem; display: grid; grid-template-columns: 1fr; align-items: center; gap: .25rem; margin-left: -4.4rem; padding: .6rem .75rem; border: 1px solid rgba(83,116,164,.5); border-radius: 1rem; background: linear-gradient(135deg,rgba(241,247,255,.98),rgba(247,243,255,.98)); color: var(--ink); text-align: center; text-decoration: none; box-shadow: 0 12px 26px rgba(61,77,111,.14); animation: founder-counter-orbit 36s linear infinite; transition: scale 240ms ease, border-color 240ms ease, box-shadow 240ms ease; }
+      .founder-profile:hover, .founder-profile:focus-visible { scale: 1.07; border-color: #597ba9; box-shadow: 0 22px 42px rgba(61,77,111,.22); }
+      .founder-profile-copy { min-width: 0; text-align: center; }
+      .founder-profile-copy span, .founder-profile-copy strong, .founder-profile-copy small { display: block; }
+      .founder-profile-copy span { color: #426b93; font-size: .52rem; font-weight: 800; letter-spacing: .08em; line-height: 1.1; text-transform: uppercase; white-space: nowrap; }
+      .founder-profile-copy strong { margin-top: .15rem; color: #293e62; font-size: .78rem; line-height: 1.1; white-space: nowrap; }
+      .founder-profile-copy small { margin-top: .18rem; color: #626b85; font-size: .49rem; line-height: 1.1; white-space: nowrap; }
+      .founder-arrow { position: absolute; top: .35rem; right: .5rem; color: #6b5aa6; font-size: .75rem; font-weight: 800; }
       .orbit-track { position: absolute; inset: 0; z-index: 3; animation: ecosystem-orbit 42s linear infinite; }
       .orbit-link { position: absolute; width: 7.6rem; min-height: 4.6rem; display: grid; place-items: center; padding: .7rem; border: 1px solid var(--stone); border-radius: 1rem; background: rgba(255,255,255,.94); color: var(--ink); font-size: .72rem; font-weight: 800; line-height: 1.25; text-align: center; text-decoration: none; box-shadow: 0 12px 28px rgba(71,63,48,.08); animation: ecosystem-counter-orbit 42s linear infinite; transition: scale 240ms ease, border-color 240ms ease, background 240ms ease, box-shadow 240ms ease; }
       .orbit-link:hover, .orbit-link:focus-visible { z-index: 4; scale: 1.07; border-color: var(--orbit-accent,var(--green)); background: color-mix(in srgb,var(--orbit-accent,var(--green)) 8%,white); box-shadow: 0 20px 38px color-mix(in srgb,var(--orbit-accent,var(--green)) 18%,transparent); }
@@ -107,6 +116,8 @@
       .orbit-3 { --orbit-accent:#9b4965; bottom: 2rem; right: 3rem; }
       .orbit-4 { --orbit-accent:#d46d37; bottom: 2rem; left: 3rem; }
       .orbit-5 { --orbit-accent:#6654a3; top: 7.5rem; left: 0; }
+      @keyframes founder-orbit { to { transform: rotate(360deg); } }
+      @keyframes founder-counter-orbit { to { transform: rotate(-360deg); } }
       @keyframes ecosystem-orbit { to { transform: rotate(360deg); } }
       @keyframes ecosystem-counter-orbit { to { transform: rotate(-360deg); } }
 
@@ -201,7 +212,7 @@
       @media (prefers-reduced-motion:reduce) {
         html { scroll-behavior: auto; }
         *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
-        .orbit-track,.orbit-link { animation: none !important; }
+        .orbit-track,.orbit-link,.founder-orbit,.founder-profile { animation: none !important; }
         .motion-ready .reveal { opacity:1; transform:none; }
       }
     </style>
@@ -239,8 +250,14 @@
               <p class="hero-copy">TrailBlazer Empire connects organizational direction, institutional capital, industry intelligence and digital enablement—helping leaders move from complexity to aligned, scalable execution.</p>
               <div class="actions"><a class="button button-primary" href="#ventures"><span aria-hidden="true">◎</span>Explore Our Ventures</a><a class="button" href="ContactUs.html"><span aria-hidden="true">↗</span>Discuss a Strategic Priority</a><a class="button" href="https://www.youtube.com/watch?v=YEVJI7rFuWo&amp;list=PLb4Zykm0hOtN0B2B_FNJvJgdiV8ctYbnr&amp;index=1" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span>Watch Our Thinking</a></div>
             </div>
-            <aside class="ecosystem reveal" aria-label="TrailBlazer Empire venture ecosystem">
+            <aside class="ecosystem reveal" aria-label="TrailBlazer Empire ecosystem with founder and subsidiary orbits">
               <div class="ecosystem-core"><div><strong>TrailBlazer Empire</strong><span>Direction · Capital · Governance · Enablement</span></div></div>
+              <div class="founder-orbit">
+                <a class="founder-profile" href="https://rheeshaalaen.trailblazerempire.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Rheeshaalaen founder profile">
+                  <span class="founder-profile-copy"><span>Founder</span><strong>Rheeshaalaen</strong><small>Principal Consultant</small></span>
+                  <span class="founder-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
               <div class="orbit-track">
                 <a class="orbit-link orbit-1" href="#vision-craft"><span>Strategy</span>Vision Craft</a>
                 <a class="orbit-link orbit-2" href="#capital-compass"><span>Capital</span>Capital Compass</a>
@@ -334,4 +351,3 @@
     </script>
   </body>
 </html>
-
