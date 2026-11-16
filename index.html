@@ -132,6 +132,24 @@
       .section-heading h2 { max-width: 18ch; margin: .65rem 0 1rem; font-size: clamp(2.7rem,5.2vw,4.9rem); line-height: 1.02; letter-spacing: -.05em; }
       .section-heading p { max-width: 51rem; color: var(--muted); font-size: 1rem; }
 
+      .featured-solutions { padding: 2.25rem 0 1rem; }
+      .featured-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 1.35rem; }
+      .featured-heading h2 { margin: .45rem 0 0; color: var(--ink); font-size: clamp(1.25rem,2.1vw,1.85rem); line-height: 1; letter-spacing: -.05em; white-space: nowrap; }
+      .featured-heading p { max-width: 25rem; margin: 0 0 .15rem; color: var(--muted); font-size: .78rem; line-height: 1.45; text-align: right; }
+      .featured-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .7rem; }
+      .featured-card { --card-accent: var(--green); position: relative; min-height: 10.5rem; display: flex; flex-direction: column; padding: 1rem; border: 1px solid var(--stone); border-top: 3px solid var(--card-accent); border-radius: var(--radius-md); background: rgba(255,255,255,.82); color: var(--ink); text-decoration: none; box-shadow: 0 10px 24px rgba(71,63,48,.05); transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease; }
+      .featured-card:nth-child(2) { --card-accent: var(--gold); }
+      .featured-card:nth-child(3) { --card-accent: #6654a3; }
+      .featured-card:hover, .featured-card:focus-visible { transform: translateY(-4px); border-color: color-mix(in srgb,var(--card-accent) 48%,var(--stone)); background: white; box-shadow: 0 22px 42px rgba(71,63,48,.12); }
+      .featured-card-label { color: var(--card-accent); font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      .featured-card h3 { margin: .55rem 0 .3rem; font-size: clamp(1.05rem,1.55vw,1.3rem); line-height: 1.08; letter-spacing: -.035em; }
+      .featured-card p { margin: 0; color: #617068; font-size: .74rem; line-height: 1.4; }
+      .featured-cta { display: inline-flex; align-items: center; gap: .4rem; width: fit-content; margin-top: auto; padding: .28rem .45rem; border: 1px solid color-mix(in srgb,var(--card-accent) 34%,var(--stone)); border-radius: .45rem; background: color-mix(in srgb,var(--card-accent) 7%,white); color: var(--card-accent); font-size: .69rem; font-weight: 800; box-shadow: 0 4px 12px color-mix(in srgb,var(--card-accent) 12%,transparent); }
+      .featured-cta::after { content: "↗"; font-size: .82rem; transition: transform 180ms ease; }
+      .featured-card:hover .featured-cta, .featured-card:focus-visible .featured-cta { border-color: var(--card-accent); background: color-mix(in srgb,var(--card-accent) 12%,white); box-shadow: 0 0 0 2px color-mix(in srgb,var(--card-accent) 12%,transparent), 0 7px 18px color-mix(in srgb,var(--card-accent) 22%,transparent); }
+      .featured-card:hover .featured-cta::after, .featured-card:focus-visible .featured-cta::after { transform: translate(2px,-2px); }
+      .featured-solutions + .hero { padding-top: clamp(2.25rem,4vw,5rem); }
+
       .connect-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1rem; }
       .connect-card { min-height: 16rem; padding: 1.4rem; border: 1px solid var(--stone); border-radius: var(--radius-md); background: rgba(255,255,255,.78); transition: transform 240ms ease, border-color 240ms ease, background 240ms ease; }
       .connect-card:hover { transform: translateY(-5px); border-color: rgba(31,107,82,.4); background: white; }
@@ -194,6 +212,9 @@
         .hero-grid, .thesis-shell { grid-template-columns: 1fr; }
         .ecosystem { width: min(100%,34rem); margin-inline: auto; }
         .connect-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+        .featured-heading { align-items: flex-start; flex-direction: column; gap: .6rem; }
+        .featured-heading h2 { white-space: normal; }
+        .featured-heading p { text-align: left; }
         .venture, .venture:nth-child(1), .venture:nth-child(2) { grid-column: span 6; }
         .venture:last-child { grid-column: 1/-1; }
       }
@@ -204,7 +225,8 @@
         .primary-nav a { white-space: nowrap; }
         .hero { padding-top: 4rem; }
         .ecosystem { min-height: 28rem; transform: scale(.83); margin-block: -2rem; }
-        .fact-strip,.connect-grid,.method-row { grid-template-columns: 1fr; }
+        .fact-strip,.connect-grid,.method-row,.featured-grid { grid-template-columns: 1fr; }
+        .featured-solutions { padding-top: 1.5rem; }
         .venture,.venture:nth-child(1),.venture:nth-child(2),.venture:last-child { grid-column: 1/-1; min-height: 28rem; }
         .cta-inner,.footer-grid { grid-template-columns: 1fr; }
         .socials { justify-content: flex-start; }
@@ -228,6 +250,13 @@
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0WPK90FME5"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-0WPK90FME5");</script>
+    <script>
+      function trackFeaturedSolution(cardName, destination) {
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "featured_solution_click", { solution: cardName, destination: destination });
+        }
+      }
+    </script>
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script defer src="assets/nexora-chat.js" data-endpoint="https://assistant.trailblazerempire.com/nexora-chat"></script>
   </head>
@@ -241,6 +270,26 @@
     </header>
 
     <main>
+      <section class="featured-solutions" aria-labelledby="featured-solutions-title">
+        <div class="wrap">
+          <div class="featured-heading">
+            <div><p class="eyebrow">TrailBlazer Empire · Featured Solutions</p><h2 id="featured-solutions-title">You've Identified the Challenge. What's Your Next Move?</h2></div>
+            <p>Whether it's your business, technology or financial decisions, find the right starting point below.</p>
+          </div>
+          <div class="featured-grid">
+            <a class="featured-card" href="https://genesis.trailblazerempire.com/" target="_blank" rel="noopener noreferrer" onclick="trackFeaturedSolution('Genesis 1:1', 'https://genesis.trailblazerempire.com/')">
+              <span class="featured-card-label">Genesis 1:1</span><h3>Business Not Moving Forward?</h3><p>Turn uncertainty into clear priorities and execution.</p><span class="featured-cta">Find Your Next Move</span>
+            </a>
+            <a class="featured-card" href="https://cto-sprint.trailblazerempire.com/" target="_blank" rel="noopener noreferrer" onclick="trackFeaturedSolution('Fractional CTO', 'https://cto-sprint.trailblazerempire.com/')">
+              <span class="featured-card-label">Fractional CTO</span><h3>Technology Holding You Back?</h3><p>Get direction before committing more time and capital.</p><span class="featured-cta">Explore CTO Sprint</span>
+            </a>
+            <a class="featured-card" href="https://promotion-inside-portfolio.trailblazerempire.com/" target="_blank" rel="noopener noreferrer" onclick="trackFeaturedSolution('Inside Portfolio', 'https://promotion-inside-portfolio.trailblazerempire.com/')">
+              <span class="featured-card-label">Inside Portfolio</span><h3>Investing Without Clarity?</h3><p>Learn through real-world portfolio transparency.</p><span class="featured-cta">See Inside the Portfolio</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="hero">
         <div class="wrap">
           <div class="hero-grid">
